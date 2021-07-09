@@ -1,7 +1,11 @@
 //console.log(globalThis);
 const { add, div, multi } = require('./calc');
+const UserData = require('./userData');
 
 console.log('Hello from top-level code 🤩');
+
+const anush = new UserData('Anush', 34);
+console.log(anush.calcAge());
 
 setImmediate(() => console.log('First immediate 👻'));
 setTimeout(() => console.log('First timeout'), 0);
