@@ -3,7 +3,10 @@ const calc = require('./calc');
 
 console.log('Hello from top-level code 🤩');
 
-setTimeout(() => console.log('First timeout'), 2000);
+setImmediate(() => console.log('First immediate 👻'));
+setTimeout(() => console.log('First timeout'), 0);
+
+process.nextTick(() => console.log('Hello next tick 😇'));
 
 setTimeout(calc, 1000, 3, 5);
 
