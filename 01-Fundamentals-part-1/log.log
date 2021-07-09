@@ -1,0 +1,137 @@
+commit a46556945dd28bec9a1fb7fb3baba1d529193ada
+Merge: 0f2b94b be1628d
+Author: anmarkosyan <anush.markos@gmail.com>
+Date:   Thu Jul 8 17:55:30 2021 +0400
+
+    Merge branch 'feature/branch3' into main
+    Merging feature/branch3 branch into main
+
+commit 0f2b94b980de0b51311cb83038388eece7f65957
+Merge: be05246 e7253d4
+Author: anmarkosyan <anush.markos@gmail.com>
+Date:   Thu Jul 8 17:47:42 2021 +0400
+
+    fix merge conflict
+
+commit be052463cac05cebb3091ac0130b8bb8b5a1cce7
+Merge: 5e497c7 ad8ad4b
+Author: anmarkosyan <anush.markos@gmail.com>
+Date:   Thu Jul 8 17:23:39 2021 +0400
+
+    merging
+
+commit be1628d53effbb523ccbf9d96f43057b5dcebb21
+Author: anmarkosyan <anush.markos@gmail.com>
+Date:   Thu Jul 8 16:58:06 2021 +0400
+
+    changed outer timer 0 to 4m
+
+ 01-Fundamentals-part-1/script.js | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit e7253d4ca572ec59d422a414ffb4c971fece3dd8
+Author: anmarkosyan <anush.markos@gmail.com>
+Date:   Thu Jul 8 16:54:42 2021 +0400
+
+    added crypto module
+
+ 01-Fundamentals-part-1/script.js | 22 +++++++++++++++++++++-
+ 1 file changed, 21 insertions(+), 1 deletion(-)
+
+commit ad8ad4bb2f2dca3135f4e5019b72c0baea887fbe
+Author: anmarkosyan <anush.markos@gmail.com>
+Date:   Thu Jul 8 16:40:05 2021 +0400
+
+    added timers inside fs callback function
+
+ 01-Fundamentals-part-1/script.js | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+commit a0a40771c9789c16500f4ff4eefefb1c5b55686d
+Author: anmarkosyan <anush.markos@gmail.com>
+Date:   Thu Jul 8 16:32:46 2021 +0400
+
+    added fs module
+
+ 01-Fundamentals-part-1/script.js | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+commit 5e497c7b5fe6b79df95d707ed58c418331691d78
+Author: anmarkosyan <anush.markos@gmail.com>
+Date:   Thu Jul 8 15:32:42 2021 +0400
+
+    added .txt file
+
+ 01-Fundamentals-part-1/test-file.txt | 9524 ++++++++++++++++++++++++++++++++++
+ 01-Fundamentals-part-1/text-file.txt |    0
+ 2 files changed, 9524 insertions(+)
+
+commit e169a1a4cf5f09982599ec1c1d342957ae257b9e
+Author: Anush Markosyan <anush.markos@gmail.com>
+Date:   Thu Jul 8 14:50:19 2021 +0400
+
+    Update script.js
+    
+    Added console at the end.
+
+ 01-Fundamentals-part-1/script.js | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit b571c7ff770888ba0b8f85ae28fe65a6b1613b22
+Author: anmarkosyan <anush.markos@gmail.com>
+Date:   Thu Jul 8 14:32:50 2021 +0400
+
+    first commit
+
+ 01-Fundamentals-part-1/script.js | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+commit fa7fd919432c96b65b84908e1f3f9225e2c08d27
+Author: anmarkosyan <anush.markos@gmail.com>
+Date:   Thu Jul 8 14:27:23 2021 +0400
+
+    added prettier formatter
+
+ .prettierrc                      | 5 +++++
+ 01-Fundamentals-part-1/script.js | 0
+ 2 files changed, 5 insertions(+)
+
+commit 80aab926adba366400b0d8630ad00d869836e5cd
+Author: anmarkosyan <anush.markos@gmail.com>
+Date:   Thu Jul 8 14:05:23 2021 +0400
+
+    removed .idea file from github
+
+ .idea/.gitignore            | 5 -----
+ .idea/jsLibraryMappings.xml | 6 ------
+ 2 files changed, 11 deletions(-)
+
+commit 24e86bad787318d285be18813cebb0222c88a600
+Author: anmarkosyan <anush.markos@gmail.com>
+Date:   Thu Jul 8 14:02:59 2021 +0400
+
+    added description about training
+
+ README.md | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+commit 3d725f835de1fb39623b994ec3a643cd6b1a6399
+Author: anmarkosyan <anush.markos@gmail.com>
+Date:   Thu Jul 8 13:55:58 2021 +0400
+
+    removed slash at the end of .idea
+
+ .gitignore | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 027aa82dea7c5680e4618e6eb93b64355c9ef1e7
+Author: anmarkosyan <anush.markos@gmail.com>
+Date:   Thu Jul 8 13:50:53 2021 +0400
+
+    first init
+
+ .gitignore                  | 1 +
+ .idea/.gitignore            | 5 +++++
+ .idea/jsLibraryMappings.xml | 6 ++++++
+ README.md                   | 0
+ 4 files changed, 12 insertions(+)
