@@ -5,7 +5,7 @@ const UserData = require('./userData');
 console.log('Hello from top-level code 🤩');
 
 const anush = new UserData('Anush', 34);
-console.log(anush.calcAge());
+console.log(`Hi, my name is ${anush.name} born in ${anush.calcAge()}`);
 
 setImmediate(() => console.log('First immediate 👻'));
 setTimeout(() => console.log('First timeout'), 0);
