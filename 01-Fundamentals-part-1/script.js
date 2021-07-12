@@ -1,8 +1,11 @@
 const fs = require('fs');
 const crypto = require('crypto');
 
-const start = new Date();
+console.log(require.resolve('fs')); //for checking if such module exist
 
+//1️⃣
+/*
+const start = new Date();
 
 console.log('------ Start -------');
 
@@ -11,6 +14,7 @@ setImmediate(() => console.log('Immediate 1'));
 
 process.nextTick(() => console.log('Outside next tick'));
 
+process.env.UV_THREADPOOL_SIZE = '2';
 
 fs.readFile('test-file.txt', 'utf-8', (err, data) => {
   console.log('I/O finished');
@@ -36,4 +40,5 @@ fs.readFile('test-file.txt', 'utf-8', (err, data) => {
 });
 
 console.log('------- End of top-level code-------');
+ */
 
