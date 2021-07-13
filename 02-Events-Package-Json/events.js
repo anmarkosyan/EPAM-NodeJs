@@ -41,12 +41,12 @@ const messages = [];
 
 logger.on('message', msg => {
   console.log(`New Message [${msg}]`);
-  messages.push(`${msg}`);
+  messages.push(msg);
 });
 
 logger.on('login', name => {
   console.log(`New User [${name}]`);
-  users.push(`${name}`);
+  users.push(name);
 });
 
 logger.on('getUsers', () => {
