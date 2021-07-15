@@ -5,7 +5,7 @@
 const events = require('events');
 const args = require('minimist')(process.argv.slice(2));
 
-console.log(args);
+//console.log(args);
 const logger = new events();
 
 const users = [];
