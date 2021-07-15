@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
-const readLine = require('readline');
+const readline = require('readline');
+const util = require('util');
 
 //================= 🔴 lecture part ===============
 //1️⃣ fs module
@@ -82,6 +83,7 @@ console.log(fs.existsSync('./about.txt')); //true | false
  */
 
 //2️⃣ path module
+/*
 //📍 => return last portion of path
 console.log(path.basename(`${__dirname}/check.txt`)); // check.txt => return last portion of path
 //📍 => Return the directory part of a path
@@ -113,4 +115,27 @@ console.log(path.parse(`${__dirname}/check.txt`));//
 
 //📍 You can get the absolute path calculation of a relative path:
 console.log(path.resolve('check.txt'));// /Users/anush/webProjects/EPAM_NodeJs/03-core-modules/check.txt
+ */
 
+//3️⃣ readline module
+//console.log(process)
+const rl = readline.createInterface({
+  input: process.stdin, // getter
+  output: process.stdout, // getter
+});
+
+rl.question('Please, enter your name: ', name => {
+  // TODO: Log the name in a database
+  console.log(`Thank you: ${name}`);
+  rl.setPrompt(`How old are you  ${name}? `);
+  rl.prompt();
+
+  rl.close();
+});
+
+//================== 🔴coding challenge ==================
+//1. Read file content. File path should be provided via readline.
+//2. Convert attached .csv file to .json file
+//3. Print attached directory structure (optional, you can try to unzip node_modules folder via nodeJs);
+
+// Note: Don’t use / or \ symbols in homework, use path methods instead.
