@@ -17,10 +17,11 @@ const readLine = require('readline');
 //   console.error(err);
 // }
 //write file
-fs.writeFileSync(`${__dirname}/test.txt`, `Node js is the best back-end environment 🤩😍 \n`);
-console.log('File written! 👻');
+// fs.writeFileSync(`${__dirname}/test.txt`, `Node js is the best back-end environment 🤩😍 \n`);
+// console.log('File written! 👻');
 
 //📍 Async methods
+/*
 fs.readFile(`${__dirname}/test.txt`, (err, data) => {
   if (err) console.error(err);
   else console.log(data.toString());
@@ -78,14 +79,38 @@ console.log(fs.existsSync('./about.txt')); //true | false
 //     });
 //   });
 // })
+ */
 
-//2️⃣ path
-//console.log(path.join(__dirname));
-//console.log(path.normalize());
+//2️⃣ path module
+//📍 => return last portion of path
+console.log(path.basename(`${__dirname}/check.txt`)); // check.txt => return last portion of path
+//📍 => Return the directory part of a path
+const myPath = path.dirname(`${__dirname}/check.txt`); //Users/anush/webProjects/EPAM_NodeJs/03-core-modules
+fs.writeFileSync(`${__dirname}/check.txt`, myPath);
+//📍 => Return the extension part of a path
+console.log(path.extname(`${__dirname}/check.txt`)); // .txt
+//📍 => Returns true if it’s an absolute path
+console.log(path.isAbsolute(`${__dirname}/check.txt`)); //true
+console.log(path.isAbsolute('./check.txt')); // false
+console.log(path.isAbsolute('/check.txt')); // true
 
-// fs.writeFile('./check.txt', 'index.js', err => {
-//   console.log('created');
-// });
-// fs.readFile('./check.txt', (err, data) => {
-//   console.log(path.isAbsolute(data.toString()));
-// });
+const readPath = fs.readFileSync(`${__dirname}/check.txt`).toString();
+console.log(path.isAbsolute(readPath)); //true
+//📍 => Joins two or more parts of a path
+console.log(path.join(`${__dirname}`, 'check.txt')); // /Users/anush/webProjects/EPAM_NodeJs/03-core-modules/check.txt
+
+//📍 => Tries to calculate the actual path when it contains relative specifiers like . or .., or double slashes:
+console.log(path.normalize('/Users/anush/../webProjects/../../EPAM_NodeJs/../03-core-modules/../check.txt')); // /check.txt
+//📍 => Parses a path to an object with the segments that compose it:
+console.log(path.parse(`${__dirname}/check.txt`));//
+// {
+//     root: '/',
+//     dir: '/Users/anush/webProjects/EPAM_NodeJs/03-core-modules',
+//     base: 'check.txt',
+//     ext: '.txt',
+//     name: 'check'
+//}
+
+//📍 You can get the absolute path calculation of a relative path:
+console.log(path.resolve('check.txt'));// /Users/anush/webProjects/EPAM_NodeJs/03-core-modules/check.txt
+
