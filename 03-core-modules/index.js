@@ -38,20 +38,46 @@ fs.appendFile(`${__dirname}/test.txt`, textCreate, err => {
 });
 
 fs.mkdir(`${__dirname}/04-test`, err => {
-  console.log('created dir 🏋');
+  if (err) console.error(err);
+  else console.log('created dir 🏋');
 });
 fs.mkdir(`../04-test`, err => {
-  console.log('Created dir out 1 level 🎉');
+  if (err) console.error(err);
+  else console.log('Created dir out 1 level 🎉');
 });
 
 fs.rmdir(`${__dirname}/04-test`, err => {
-  if(err) console.error(err);
-  else console.log('removed direction 🤷')
+  if (err) console.error(err);
+  else console.log('removed direction 🤷');
 });
 
-//console.log(fs.statSync('./test.txt')); //about file info
+fs.unlink(`${__dirname}/about.txt`, err => {
+  if (err) console.error(err);
+  else console.log('Removed about.txt file 😉');
+});
 
-// console.log(fs.existsSync('./about.txt'));//true
+console.log(fs.statSync('./test.txt')); //info about file
+
+console.log(fs.existsSync('./about.txt')); //true | false
+// fs.open(`${__dirname}/about.txt`, 'r', (err, fd) =>{
+//   if(err) console.error(err);
+//
+//   const  buffer = new Buffer(1024);
+//   fs.read(fd, buffer, 0, buffer.length, 0, function (err, bytes) {
+//
+//     if (err) throw err;
+//
+//     // Print only read bytes to avoid junk.
+//     if (bytes > 0) {
+//       console.log(buffer.slice(0, bytes).toString());
+//     }
+//
+//     // Close the opened file.
+//     fs.close(fd, function (err) {
+//       if (err) throw err;
+//     });
+//   });
+// })
 
 //2️⃣ path
 //console.log(path.join(__dirname));
