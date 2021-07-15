@@ -1,2 +1,0 @@
-This file is about fs modules and was created on: 
-Thu Jul 15 2021 16:50:43 GMT+0400 (Armenia Standard Time)
