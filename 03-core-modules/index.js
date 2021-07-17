@@ -137,17 +137,18 @@ const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
 const csvToJson = require('csvtojson');
+const extractZip = require('extract-zip');
 
 // ❗️ Note: Don’t use / or \ symbols in homework, use path methods instead.
 
 //1️⃣  Read file content. File path should be provided via readline.
-const pathName = path.resolve(`${__dirname}/check.txt`);
-const rl = readline.createInterface({
-  input: fs.createReadStream(pathName),
-});
-rl.on('line', line => {
-  console.log(line);
-});
+// const pathName = path.resolve(`${__dirname}/check.txt`);
+// const rl = readline.createInterface({
+//   input: fs.createReadStream(pathName),
+// });
+// rl.on('line', line => {
+//   console.log(line);
+// });
 
 //2️⃣  Convert attached .csv file to .json file
 // csvToJson()
@@ -158,7 +159,7 @@ rl.on('line', line => {
 //   });
 
 //3️⃣  Print attached directory structure (optional, you can try to unzip node_modules folder via nodeJs);
-// const unzipFile = async function () {
+//  const unzipFile = async function () {
 //   try {
 //     await extractZip(`${__dirname}/node_modules.zip`, { dir: `${__dirname}/test` });
 //     console.log('Extraction complete');
@@ -168,3 +169,4 @@ rl.on('line', line => {
 // };
 //
 // unzipFile();
+
