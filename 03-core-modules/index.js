@@ -141,25 +141,26 @@ const csvToJson = require('csvtojson');
 // ❗️ Note: Don’t use / or \ symbols in homework, use path methods instead.
 
 //1️⃣  Read file content. File path should be provided via readline.
+const pathName = path.resolve(`${__dirname}/check.txt`);
 const rl = readline.createInterface({
-  input: fs.createReadStream(path.join(__dirname, 'check.txt')),
+  input: fs.createReadStream(pathName),
 });
 rl.on('line', line => {
   console.log(line);
 });
 
 //2️⃣  Convert attached .csv file to .json file
-csvToJson()
-  .fromFile(path.join(__dirname, 'addresses.csv'))
-  .then(jsonObj => {
-    console.log(jsonObj);
-    fs.writeFileSync(path.join(__dirname, 'addresses.json'), JSON.stringify(jsonObj, null, 2));
-  });
+// csvToJson()
+//   .fromFile(path.join(__dirname, 'addresses.csv'))
+//   .then(jsonObj => {
+//     console.log(jsonObj);
+//     fs.writeFileSync(path.join(__dirname, 'addresses.json'), JSON.stringify(jsonObj, null, 2));
+//   });
 
 //3️⃣  Print attached directory structure (optional, you can try to unzip node_modules folder via nodeJs);
 // const unzipFile = async function () {
 //   try {
-//     const rl = await extract(`${__dirname}/node_modules.zip`, { dir: `${__dirname}` });
+//     await extractZip(`${__dirname}/node_modules.zip`, { dir: `${__dirname}/test` });
 //     console.log('Extraction complete');
 //   } catch (err) {
 //     console.error(err);
