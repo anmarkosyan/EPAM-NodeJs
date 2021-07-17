@@ -1,7 +1,7 @@
-const fs = require('fs');
-const path = require('path');
-const readline = require('readline');
-const util = require('util');
+// const fs = require('fs');
+// const path = require('path');
+// const readline = require('readline');
+// const extract = require('extract-zip');
 
 //================= 🔴 lecture part ===============
 //1️⃣ fs module
@@ -119,23 +119,51 @@ console.log(path.resolve('check.txt'));// /Users/anush/webProjects/EPAM_NodeJs/0
 
 //3️⃣ readline module
 //console.log(process)
+// const rl = readline.createInterface({
+//   input: process.stdin, // getter
+//   output: process.stdout, // getter
+// });
+//
+// rl.question('Please, enter your name: ', name => {
+//   console.log(`Thank you: ${name}`);
+//   rl.setPrompt(`How old are you  ${name}? `);
+//   rl.prompt();
+//
+//   rl.close();
+// });
+
+//================== 🔴 coding challenge ==================
+const fs = require('fs');
+const path = require('path');
+const readline = require('readline');
+const csvToJson = require('csvtojson');
+
+// ❗️ Note: Don’t use / or \ symbols in homework, use path methods instead.
+
+//1️⃣  Read file content. File path should be provided via readline.
 const rl = readline.createInterface({
-  input: process.stdin, // getter
-  output: process.stdout, // getter
+  input: fs.createReadStream(path.join(__dirname, 'check.txt')),
+});
+rl.on('line', line => {
+  console.log(line);
 });
 
-rl.question('Please, enter your name: ', name => {
-  // TODO: Log the name in a database
-  console.log(`Thank you: ${name}`);
-  rl.setPrompt(`How old are you  ${name}? `);
-  rl.prompt();
+//2️⃣  Convert attached .csv file to .json file
+csvToJson()
+  .fromFile(path.join(__dirname, 'addresses.csv'))
+  .then(jsonObj => {
+    console.log(jsonObj);
+    fs.writeFileSync(path.join(__dirname, 'addresses.json'), JSON.stringify(jsonObj, null, 2));
+  });
 
-  rl.close();
-});
-
-//================== 🔴coding challenge ==================
-//1. Read file content. File path should be provided via readline.
-//2. Convert attached .csv file to .json file
-//3. Print attached directory structure (optional, you can try to unzip node_modules folder via nodeJs);
-
-// Note: Don’t use / or \ symbols in homework, use path methods instead.
+//3️⃣  Print attached directory structure (optional, you can try to unzip node_modules folder via nodeJs);
+// const unzipFile = async function () {
+//   try {
+//     const rl = await extract(`${__dirname}/node_modules.zip`, { dir: `${__dirname}` });
+//     console.log('Extraction complete');
+//   } catch (err) {
+//     console.error(err);
+//   }
+// };
+//
+// unzipFile();
