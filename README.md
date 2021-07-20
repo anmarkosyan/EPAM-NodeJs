@@ -17,3 +17,9 @@
   - file System
   - path 
   - readline
+
+
+- **04: Core modules**
+  - child processes
+  - cluster
+  - worker threads
