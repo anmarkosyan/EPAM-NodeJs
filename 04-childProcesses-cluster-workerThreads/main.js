@@ -16,7 +16,8 @@ server.on('request', (req, res) => {
   console.log(req.url);
   if (req.url === '/compute') {
     const compute = fork('compute.js');
-    compute.send('start');
+
+    compute.send('starting listen child process...');
     compute.on('message', sum => {
       res.end(`Sum is: ${sum}`);
     });
