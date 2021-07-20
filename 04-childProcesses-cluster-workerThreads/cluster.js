@@ -28,11 +28,14 @@ Write a function which will
 3.Make sure that you will fork process for 2 processor.
  */
 
+const factorial = n => (n ? factorial(n - 1) * n : 1);
+
 if (cluster.isMaster) {
-  console.log('Forking for 2 CPUs');
+  console.log(`[${process.pid}] Forking for 2 CPUs`);
   for (let i = 0; i < 2; i++) {
     cluster.fork();
   }
 } else {
-  require('./server')
+  console.log(`[${process.pid}] ${factorial(50)} ${cluster.worker.id}`);
+  process.exit(0);
 }
