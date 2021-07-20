@@ -1,5 +1,6 @@
 const { fork } = require('child_process');
 const server = require('http').createServer();
+const fs = require('fs');
 
 //1️⃣exp:
 // const forked = fork('childProcess.js');
@@ -21,6 +22,8 @@ server.on('request', (req, res) => {
     compute.on('message', sum => {
       res.end(`Sum is: ${sum}`);
     });
+  } else {
+    res.end('Choose correct path!))');
   }
 });
 
