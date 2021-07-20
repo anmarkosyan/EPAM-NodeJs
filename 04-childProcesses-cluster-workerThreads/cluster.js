@@ -20,6 +20,14 @@ if (cluster.isMaster) {
  */
 
 //============= 🔴 coding challenge =========
+//1️⃣
+/*
+Write a function which will
+1.Calculate factorial of 1-50 in parallel clusters.
+2.and return the main result to main thread and sum up in main thread and print the result on the console.
+3.Make sure that you will fork process for 2 processor.
+ */
+
 if (cluster.isMaster) {
   console.log('Forking for 2 CPUs');
   for (let i = 0; i < 2; i++) {
