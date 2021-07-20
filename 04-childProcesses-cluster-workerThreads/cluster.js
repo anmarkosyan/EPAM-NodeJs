@@ -35,7 +35,17 @@ if (cluster.isMaster) {
   for (let i = 0; i < forks; i++) {
     cluster.fork();
   }
+  cluster.on('exit', (worker, code, signal) => {
+    console.log(`worker ${worker.process.pid} died`);
+  });
 } else {
+  http
+    .createServer((req, res) => {
+      res.writeHead(200);
+      res.end('hello world\n');
+    })
+    .listen(8000);
+
   console.log(`[${process.pid}] ${factorial(50)} ${cluster.worker.id}`);
   process.exit(0);
 }
