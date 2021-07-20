@@ -11,13 +11,12 @@
 // });
 // console.log('end');
 
+//📍send a message and receive the message to the parent/main process
 process.on('message', msg => {
   console.log(`Message from parent: ${msg}`);
 });
 
-
 let counter = 0;
-setInterval(()=>{
-  process.send(`counter: ${counter++}`)
-}, 1000)
-
+setInterval(() => {
+  process.send(`counter: ${counter++}`);
+}, 1000);
