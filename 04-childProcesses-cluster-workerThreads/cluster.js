@@ -31,17 +31,16 @@ const forks = 2;
 const factorial = n => (n ? factorial(n - 1) * n : 1);
 
 if (cluster.isMaster) {
-  console.log(`[${process.pid}] Forking for 2 CPUs`);
+  console.log(`[${process.pid}] Forking for ${forks} CPUs...`);
 
   for (let i = 0; i < forks; i++) {
     cluster.fork();
   }
 
   Object.values(cluster.workers).forEach(worker => {
-    worker.on('message', data => {
-      console.log(data);
-    });
+    worker.send(`[${process.pid}] ${factorial(50)}`);
   });
+
   cluster.on('exit', (worker, code, signal) => {
     console.log(`[${worker.process.pid}] worker died`);
   });
@@ -53,6 +52,11 @@ if (cluster.isMaster) {
     })
     .listen(8000);
 
-  process.send(`[${process.pid}] ${factorial(50)}`);
-  process.exit(0);
+  process.on('message', data => {
+    console.log(data);
+  });
+
+  setTimeout(() => {
+    process.exit(1); // death by random timeout
+  }, Math.random() * 10000);
 }
