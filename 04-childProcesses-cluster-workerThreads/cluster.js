@@ -27,22 +27,6 @@ Write a function which will
 2.and return the main result to main thread and sum up in main thread and print the result on the console.
 3.Make sure that you will fork process for 2 processor.
  */
-// const forks = 2;
-// const factorial = n => (n ? factorial(n - 1) * n : 1);
-// if (cluster.isMaster) {
-//   console.log('hi master');
-//   for (let i = 0; i < forks; i++) {
-//     const worker = cluster.fork();
-//     //console.log('masters workers')
-//     worker.send(factorial(50));
-//   }
-// } else if (cluster.isWorker) {
-//   process.on('message', msg => {
-//     console.log(msg);
-//   });
-//   //console.log('workers')
-// }
-
 const forks = 2;
 const factorial = n => (n ? factorial(n - 1) * n : 1);
 
@@ -59,7 +43,7 @@ if (cluster.isMaster) {
     });
   });
   cluster.on('exit', (worker, code, signal) => {
-    console.log(`worker ${worker.process.pid} died`);
+    console.log(`[${worker.process.pid}] worker died`);
   });
 } else {
   http
@@ -69,6 +53,6 @@ if (cluster.isMaster) {
     })
     .listen(8000);
 
-  process.send(`[${process.pid}] ${factorial(50)} ${cluster.worker.id}`);
+  process.send(`[${process.pid}] ${factorial(50)}`);
   process.exit(0);
 }
