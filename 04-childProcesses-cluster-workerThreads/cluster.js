@@ -37,9 +37,9 @@ if (cluster.isMaster) {
     cluster.fork();
   }
 
-  Object.values(cluster.workers).forEach(el => {
-    el.on('message', msg => {
-      console.log(msg);
+  Object.values(cluster.workers).forEach(worker => {
+    worker.on('message', data => {
+      console.log(data);
     });
   });
   cluster.on('exit', (worker, code, signal) => {
