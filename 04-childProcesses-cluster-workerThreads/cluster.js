@@ -36,13 +36,20 @@ if (cluster.isMaster) {
   for (let i = 0; i < forks; i++) {
     cluster.fork();
   }
-
   Object.values(cluster.workers).forEach(worker => {
-    worker.send(`[${process.pid}] ${factorial(50)}`);
+    worker.on('message', data => {
+      console.log(data);
+    });
   });
 
   cluster.on('exit', (worker, code, signal) => {
     console.log(`[${worker.process.pid}] worker died`);
+
+    //In case if  any worker process exit we can fork new worker process
+    // if (code !== 0 && !worker.exitedAfterDisconnect) {
+    //   console.log(`Worker ${worker.id} crashed.` + 'Starting a new worker...');
+    //   cluster.fork();
+    // }
   });
 } else {
   http
@@ -52,9 +59,7 @@ if (cluster.isMaster) {
     })
     .listen(8000);
 
-  process.on('message', data => {
-    console.log(data);
-  });
+  process.send(`[${process.pid}] ${factorial(50)}`);
 
   setTimeout(() => {
     process.exit(1); // death by random timeout
