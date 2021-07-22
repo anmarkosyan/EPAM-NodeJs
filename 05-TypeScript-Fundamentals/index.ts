@@ -1,4 +1,4 @@
-//==================== 🔴 type script ==================
+//==================== 🔴 typescript ==================
 //1️⃣ primitives
 const x: string = 'Anush';
 let x1 = 'Aram';
@@ -33,3 +33,34 @@ console.log(tupleData);
 //✅ Generics
 const genericData: Array<number> = [34, 5, 6, 7];
 console.log(genericData);
+
+//3️⃣ functions
+// function letFunction() {
+//   let x = '111';
+//   if (true) {
+//     let x = 99;
+//   }
+//   console.log(x);
+// }
+// letFunction();
+//==================
+//❗️will throw an error because we want to change var value type
+// function varLetFunction(){
+//     var myStringValue = "varStringValue";
+//     let myStringValueLet = "letStringValue";
+//     if(true){
+//         var myStringValue = 123;
+//         let myStringValueLet = 12345;
+//     }
+// }
+// varLetFunction();
+//=================
+const fnc1 = function (i: number) {
+  console.log(`Parameter: ${i}`);
+  //let i:number = 10; => duplicate identifier
+};
+fnc1(10);
+
+//=======
+
+
