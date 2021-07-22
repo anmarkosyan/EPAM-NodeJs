@@ -23,3 +23,7 @@
   - child processes
   - cluster
   - worker threads
+
+
+- **05: TypeScript**
+  - Fundamentals-part1
