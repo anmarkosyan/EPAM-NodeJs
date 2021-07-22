@@ -1,0 +1,16 @@
+{
+  "name": "05-typescript-fundamentals",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "npx tsc",
+    "execute": "node ./dist/index.js",
+    "start": "npm run compile && npm run execute"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  }
+}
