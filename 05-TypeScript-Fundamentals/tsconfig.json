@@ -8,5 +8,6 @@
     "outDir": "dist",
     "sourceRoot": "",
     "strict": true
-  }
+  },
+  "exclude": ["node_modules"]
 }
