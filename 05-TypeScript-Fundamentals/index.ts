@@ -1,5 +1,6 @@
 //==================== 🔴 typescript ==================
 //1️⃣ primitives
+/*
 const x: string = 'Anush';
 let x1 = 'Aram';
 x1 = 'Levon';
@@ -33,7 +34,7 @@ console.log(tupleData);
 //✅ Generics
 const genericData: Array<number> = [34, 5, 6, 7];
 console.log(genericData);
-
+ */
 //3️⃣ functions
 // function letFunction() {
 //   let x = '111';
@@ -55,12 +56,35 @@ console.log(genericData);
 // }
 // varLetFunction();
 //=================
-const fnc1 = function (i: number) {
-  console.log(`Parameter: ${i}`);
-  //let i:number = 10; => duplicate identifier
-};
-fnc1(10);
+// const fnc1 = function (i: number) {
+//   console.log(`Parameter: ${i}`);
+//   //let i:number = 10; => duplicate identifier
+// };
+// fnc1(10);
 
 //=======
+/*
+const fnc2 = function (i2: number) {
+  console.log(`Parameter 1: ${i2}`);
+  const i: number = 10;
+  for (let i = 100; i < 101; i++) {
+    console.log(`Parameter 2: ${i}`);
 
+    for (let i = 200; i < 201; i++) {
+      console.log(`parameter 3: ${i}`);
+    }
+  }
 
+  console.log(i);
+};
+
+fnc2(34);
+ */
+
+//=============
+const fnc3 = function (): number {
+  return 4 + 8;
+};
+
+const msg = `in our stock we have an ${fnc3()}kg. cheese 🧀`;
+console.log(msg)
