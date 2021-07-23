@@ -1,4 +1,12 @@
 //==================== 🔴 typescript ==================
+//for importing core node modules do this: => npm install -D @types/node
+import * as fs from 'fs';
+
+const text = 'Starting coding node with typeScript 💥';
+fs.writeFile('test.txt', text, () => {
+  console.log('file created!!!!');
+});
+
 //1️⃣ primitives
 /*
 const x: string = 'Anush';
@@ -87,4 +95,4 @@ const fnc3 = function (): number {
 };
 
 const msg = `in our stock we have an ${fnc3()}kg. cheese 🧀`;
-console.log(msg)
+console.log(msg);

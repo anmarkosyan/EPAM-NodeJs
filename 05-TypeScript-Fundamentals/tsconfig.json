@@ -6,9 +6,10 @@
     "preserveConstEnums": true,
     "sourceMap": true,
     "outDir": "dist",
-    "sourceRoot": "",
-    "strict": true,
-    "noEmitOnError": true
+    "alwaysStrict": true,
+    "noEmitOnError": true,
+    "experimentalDecorators": true,
+    "types": ["node"]
   },
   "exclude": ["node_modules"]
 }
