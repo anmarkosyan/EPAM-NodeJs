@@ -1,3 +1,6 @@
+// import {getHorsePowerPrice}  from './features.js'
+//
+// console.log(getHorsePowerPrice());
 /*
 1.You need to use decorator pattern for decorating the car class
 2.You need to add engine on it and set power for it.
@@ -11,14 +14,14 @@ for example => `BMW with color green decorated and price 10200$ and your car has
 .*/
 
 class MiniCopper {
-  plainPrice: number;
+  cost: number;
   engine: string;
   horsepower: number;
   doorCount: number;
   color: string;
 
   constructor(engine: string, horsepower: number, doorCount: number, color: string) {
-    this.plainPrice = 15000;
+    this.cost = 15000;
     this.engine = engine;
     this.horsepower = horsepower;
     this.doorCount = doorCount;
@@ -44,17 +47,15 @@ class MiniCopper {
   }
 
   public getTotalPrice(): number {
-    const addedPrice: number[] = [this.plainPrice, this.getEnginePrice(), this.getHorsePowerPrice(), this.getDoorCountPrice(), this.getColorPrice()];
+    const addedPrice: number[] = [this.cost, this.getEnginePrice(), this.getHorsePowerPrice(), this.getDoorCountPrice(), this.getColorPrice()];
 
-    return addedPrice.reduce((sum, num) => sum + num, 0);
+    return addedPrice.reduce((sum: number, num: number) => sum + num, 0);
   }
 
   public getMsg(): string {
-    //`BMW with color green decorated and price 10200$ and your car has hybrid engine`.
     return ` Car name: Mini Cooper\n color: ${this.color}\n engine: ${this.engine}\n price: $${this.getTotalPrice()}`;
   }
 }
 
-const miniCopper = new MiniCopper('oil', 400, 2, 'black');
+const miniCopper: MiniCopper = new MiniCopper('oil', 400, 2, 'black');
 console.log(miniCopper.getMsg());
-

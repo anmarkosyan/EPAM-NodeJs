@@ -8,8 +8,7 @@
     "outDir": "dist",
     "alwaysStrict": true,
     "noEmitOnError": true,
-    "experimentalDecorators": true,
-    "types": ["node"]
+    "experimentalDecorators": true
   },
   "exclude": ["node_modules"]
 }
