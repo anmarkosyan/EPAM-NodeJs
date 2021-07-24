@@ -13,19 +13,19 @@ for example => `BMW with color green decorated and price 10200$ and your car has
 
 .*/
 abstract class Car {
+  carModel: string;
   engine: string;
   horsepower: number;
   doorCount: number;
   color: string;
 
-  public abstract getEnginePrice(): number;
-  public abstract getHorsePowerPrice(): number;
-  public abstract getDoorCountPrice(): number;
-  public abstract getColorPrice(): number;
-  public abstract getTotalPrice(): number;
+  abstract getEnginePrice(): number;
+  abstract getHorsePowerPrice(): number;
+  abstract getDoorCountPrice(): number;
+  abstract getColorPrice(): number;
 }
 
-abstract class DecorateOptions extends Car {
+export class DecorateOptions extends Car {
   getEnginePrice(): number {
     const enginePrice: { [hybrid: string]: number; oil: number } = { hybrid: 500, oil: 700 };
     return enginePrice[this.engine];
@@ -45,10 +45,11 @@ abstract class DecorateOptions extends Car {
   }
 }
 
-class MiniCopper extends DecorateOptions {
+class HardTop2Door extends DecorateOptions {
   private readonly cost: number;
-  constructor(engine: string, horsepower: number, doorCount: number, color: string) {
+  constructor(carModel: string, engine: string, horsepower: number, doorCount: number, color: string) {
     super();
+    this.carModel = carModel;
     this.cost = 15000;
     this.engine = engine;
     this.horsepower = horsepower;
@@ -57,7 +58,6 @@ class MiniCopper extends DecorateOptions {
   }
   getTotalPrice(): number {
     const addedPrice: number[] = [this.cost, this.getEnginePrice(), this.getHorsePowerPrice(), this.getDoorCountPrice(), this.getColorPrice()];
-
     return addedPrice.reduce((sum: number, num: number) => sum + num, 0);
   }
 
@@ -66,6 +66,6 @@ class MiniCopper extends DecorateOptions {
   }
 }
 
-const miniCopper = new MiniCopper('oil', 200, 2, 'black');
-console.log(miniCopper.getEnginePrice());
-console.log(miniCopper.getMsg());
+const hardtop2door = new HardTop2Door('HARDTOP 2 DOOR', 'oil', 200, 2, 'black');
+console.log(hardtop2door.getEnginePrice());
+console.log(hardtop2door.getMsg());
