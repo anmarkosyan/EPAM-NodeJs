@@ -12,50 +12,60 @@ give possibility to set engine as hybrid or oil based and based on that car pric
 for example => `BMW with color green decorated and price 10200$ and your car has hybrid engine`.
 
 .*/
-
-class MiniCopper {
-  cost: number;
+abstract class Car {
   engine: string;
   horsepower: number;
   doorCount: number;
   color: string;
 
+  public abstract getEnginePrice(): number;
+  public abstract getHorsePowerPrice(): number;
+  public abstract getDoorCountPrice(): number;
+  public abstract getColorPrice(): number;
+  public abstract getTotalPrice(): number;
+}
+
+abstract class DecorateOptions extends Car {
+  getEnginePrice(): number {
+    const enginePrice: { [hybrid: string]: number; oil: number } = { hybrid: 500, oil: 700 };
+    return enginePrice[this.engine];
+  }
+  getHorsePowerPrice(): number {
+    const power = this.horsepower;
+    return power > 100 && power < 300 ? 780 : power > 300 && power < 500 ? 900 : 0;
+  }
+
+  getDoorCountPrice(): number {
+    return this.doorCount === 2 ? 1300 : 3400;
+  }
+
+  getColorPrice(): number {
+    const colorPrice: { [white: string]: number; black: number; silver: number } = { white: 1200, black: 2100, silver: 1800 };
+    return colorPrice[this.color];
+  }
+}
+
+class MiniCopper extends DecorateOptions {
+  private readonly cost: number;
   constructor(engine: string, horsepower: number, doorCount: number, color: string) {
+    super();
     this.cost = 15000;
     this.engine = engine;
     this.horsepower = horsepower;
     this.doorCount = doorCount;
     this.color = color;
   }
-
-  public getEnginePrice(): number {
-    const enginePrice: { [hybrid: string]: number; oil: number } = { hybrid: 500, oil: 700 };
-    return enginePrice[this.engine];
-  }
-  public getHorsePowerPrice(): number {
-    const power = this.horsepower;
-    return power > 100 && power < 300 ? 780 : power > 300 && power < 500 ? 900 : 0;
-  }
-
-  public getDoorCountPrice(): number {
-    return this.doorCount === 2 ? 1300 : 3400;
-  }
-
-  public getColorPrice(): number {
-    const colorPrice: { [white: string]: number; black: number; silver: number } = { white: 1200, black: 2100, silver: 1800 };
-    return colorPrice[this.color];
-  }
-
-  public getTotalPrice(): number {
+  getTotalPrice(): number {
     const addedPrice: number[] = [this.cost, this.getEnginePrice(), this.getHorsePowerPrice(), this.getDoorCountPrice(), this.getColorPrice()];
 
     return addedPrice.reduce((sum: number, num: number) => sum + num, 0);
   }
 
-  public getMsg(): string {
+  getMsg(): string {
     return ` Car name: Mini Cooper\n color: ${this.color}\n engine: ${this.engine}\n price: $${this.getTotalPrice()}`;
   }
 }
 
-const miniCopper: MiniCopper = new MiniCopper('oil', 400, 2, 'black');
+const miniCopper = new MiniCopper('oil', 200, 2, 'black');
+console.log(miniCopper.getEnginePrice());
 console.log(miniCopper.getMsg());
