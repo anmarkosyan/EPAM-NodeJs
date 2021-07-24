@@ -20,7 +20,7 @@ abstract class Car {
   abstract getDoorCountPrice(): number;
   abstract getColorPrice(): number;
 }
-
+//to find the imported module go to the ./models directory
 export class DecorateDetails extends Car {
   getEnginePrice(): number {
     const enginePrice: { [hybrid: string]: number; oil: number } = { hybrid: 500, oil: 700 };
