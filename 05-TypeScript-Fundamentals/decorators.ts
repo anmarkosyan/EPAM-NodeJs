@@ -21,7 +21,7 @@ abstract class Car {
   abstract getColorPrice(): number;
 }
 
-export class DecorateOptions extends Car {
+export class DecorateDetails extends Car {
   getEnginePrice(): number {
     const enginePrice: { [hybrid: string]: number; oil: number } = { hybrid: 500, oil: 700 };
     return enginePrice[this.engine];

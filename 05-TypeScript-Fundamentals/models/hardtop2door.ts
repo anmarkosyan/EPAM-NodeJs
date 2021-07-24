@@ -1,6 +1,6 @@
-import { DecorateOptions } from '../decorators';
+import { DecorateDetails } from '../decorators';
 
-class HardTop2Door extends DecorateOptions {
+class HardTop2Door extends DecorateDetails {
   private readonly cost: number;
   constructor(carModel: string, engine: string, horsepower: number, doorCount: number, color: string) {
     super();

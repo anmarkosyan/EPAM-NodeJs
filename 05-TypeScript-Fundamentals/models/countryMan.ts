@@ -1,6 +1,6 @@
-import { DecorateOptions } from '../decorators';
+import { DecorateDetails } from '../decorators';
 
-class CountryMan extends DecorateOptions {
+class CountryMan extends DecorateDetails {
   private readonly cost: number;
   constructor(carModel: string, engine: string, horsepower: number, doorCount: number, color: string) {
     super();
