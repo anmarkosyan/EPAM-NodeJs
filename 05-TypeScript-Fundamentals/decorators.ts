@@ -7,8 +7,7 @@ give possibility to set engine as hybrid or oil based and based on that car pric
 5.You need decorate it and add price calculation method on it and after that you need to print the result
 
 for example => `BMW with color green decorated and price 10200$ and your car has hybrid engine`.
-
-.*/
+*/
 abstract class Car {
   carModel: string;
   engine: string;

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "compile": "npx tsc",
-    "execute": "node ./dist/decorators.js",
+    "execute": "node ./dist/models/countryMan.js",
     "start": "npm run compile && npm run execute"
   },
   "author": "",
