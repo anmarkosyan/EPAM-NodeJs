@@ -48,3 +48,5 @@ export class DecorateDetails extends Car {
     else throw new Error('💥 500 ERROR: Something went wrong!').message;
   }
 }
+
+console.log('decorator branch')
