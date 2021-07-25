@@ -15,10 +15,10 @@ abstract class Car {
   doorCount: number;
   color: string;
 
-  abstract getEnginePrice(): number | string;
-  abstract getHorsePowerPrice(): number | string;
-  abstract getDoorCountPrice(): number | string;
-  abstract getColorPrice(): number | string;
+  abstract getEnginePrice(): number;
+  abstract getHorsePowerPrice(): number;
+  abstract getDoorCountPrice(): number;
+  abstract getColorPrice(): number;
 }
 //to find the imported module go to the ./models directory
 export class DecorateDetails extends Car {
