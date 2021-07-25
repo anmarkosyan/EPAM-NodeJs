@@ -29,7 +29,6 @@ class MiniCooper extends Car {
 
 //decorator class
 abstract class MiniCooperDecorator extends Car {
-  decoratedCar: Car;
   public abstract carModel: string;
   public abstract price(): number;
 }
@@ -37,12 +36,11 @@ abstract class MiniCooperDecorator extends Car {
 //concrete decorator class
 class Door extends MiniCooperDecorator {
   public carModel: string;
-  decoratedCar: Car;
   doorCount: number;
-  constructor(car: Car, doorCount: number) {
+
+  constructor(doorCount: number) {
     super();
     this.doorCount = doorCount;
-    this.decoratedCar = car;
   }
 
   price(): number {
@@ -55,12 +53,11 @@ class Door extends MiniCooperDecorator {
 
 class Engine extends MiniCooperDecorator {
   public carModel: string;
-  decoratedCar: Car;
   engine: string;
-  constructor(car: Car, engine: string) {
+
+  constructor(engine: string) {
     super();
     this.engine = engine;
-    this.decoratedCar = car;
   }
 
   price(): number {
@@ -73,12 +70,11 @@ class Engine extends MiniCooperDecorator {
 
 class Color extends MiniCooperDecorator {
   public carModel: string;
-  decoratedCar: Car;
   color: string;
-  constructor(car: Car, color: string) {
+
+  constructor(color: string) {
     super();
     this.color = color;
-    this.decoratedCar = car;
   }
 
   price(): number {
@@ -89,12 +85,11 @@ class Color extends MiniCooperDecorator {
 }
 class Horsepower extends MiniCooperDecorator {
   public carModel: string;
-  decoratedCar: Car;
   horsepower: number;
-  constructor(car: Car, horsepower: number) {
+
+  constructor(horsepower: number) {
     super();
     this.horsepower = horsepower;
-    this.decoratedCar = car;
   }
 
   price(): number {
@@ -108,10 +103,10 @@ class Horsepower extends MiniCooperDecorator {
 //execution
 const getTotalPrice = function (): string {
   const mini = new MiniCooper();
-  const doorPrice = new Door(mini, 4);
-  const enginePrice = new Engine(mini, 'hybrid');
-  const colorPrice = new Color(mini, 'white');
-  const horsepowerPrice = new Horsepower(mini, 150);
+  const doorPrice = new Door(4);
+  const enginePrice = new Engine('hybrid');
+  const colorPrice = new Color('white');
+  const horsepowerPrice = new Horsepower(150);
 
   const addedPrice: number[] = [doorPrice.price(), enginePrice.price(), colorPrice.price(), horsepowerPrice.price()];
   const totalPrice = addedPrice.reduce((sum: number, num: number) => sum + num, 0) + mini.price();
@@ -120,4 +115,4 @@ const getTotalPrice = function (): string {
 };
 
 const miniCooper = getTotalPrice();
-console.log(miniCooper)
+console.log(miniCooper);
