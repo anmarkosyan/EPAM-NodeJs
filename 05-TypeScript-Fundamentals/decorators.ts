@@ -47,8 +47,8 @@ class Door extends MiniCooperDecorator {
 
   price(): number {
     if (this.doorCount) {
-      if (this.doorCount === 2) return this.decoratedCar.price();
-      else if (this.doorCount === 4) return this.decoratedCar.price();
+      if (this.doorCount === 2) return 780;
+      else if (this.doorCount === 4) return 1500;
     } else throw new Error('💥 500 ERROR: Something went wrong!').message;
   }
 }
