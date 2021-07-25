@@ -6,10 +6,10 @@ class CountryMan extends DecorateDetails {
     super();
     this.carModel = carModel;
     this.cost = 22000;
-    this.engine = engine;
+    this.engine = engine.toLowerCase();
     this.horsepower = horsepower;
     this.doorCount = doorCount;
-    this.color = color;
+    this.color = color.toLowerCase();
   }
   getTotalPrice(): number {
     const addedPrice: number[] = [this.cost, this.getEnginePrice(), this.getHorsePowerPrice(), this.getDoorCountPrice(), this.getColorPrice()];
@@ -20,5 +20,5 @@ class CountryMan extends DecorateDetails {
     return ` Car name: ${this.carModel}\n color: ${this.color}\n engine: ${this.engine}\n price: $${this.getTotalPrice()}`;
   }
 }
-const countryMan = new CountryMan('COUNTRYMAN', 'oil', 450, 4, 'white');
+const countryMan = new CountryMan('COUNTRYMAN', 'ass', 90, 3, 'white');
 console.log(countryMan.getMsg());

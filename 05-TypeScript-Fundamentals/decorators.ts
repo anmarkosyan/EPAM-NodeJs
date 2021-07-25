@@ -15,28 +15,36 @@ abstract class Car {
   doorCount: number;
   color: string;
 
-  abstract getEnginePrice(): number;
-  abstract getHorsePowerPrice(): number;
-  abstract getDoorCountPrice(): number;
-  abstract getColorPrice(): number;
+  abstract getEnginePrice(): number | string;
+  abstract getHorsePowerPrice(): number | string;
+  abstract getDoorCountPrice(): number | string;
+  abstract getColorPrice(): number | string;
 }
 //to find the imported module go to the ./models directory
 export class DecorateDetails extends Car {
   getEnginePrice(): number {
     const enginePrice: { [hybrid: string]: number; oil: number } = { hybrid: 500, oil: 700 };
-    return enginePrice[this.engine];
+
+    if (this.engine && enginePrice[this.engine]) return enginePrice[this.engine];
+    else throw new Error('💥 500: Something went wrong!').message;
   }
   getHorsePowerPrice(): number {
     const power = this.horsepower;
-    return power > 100 && power < 300 ? 780 : power > 300 && power < 500 ? 900 : 0;
+    if (power && power > 100 && power < 300) return 780;
+    else if (power && power > 300 && power < 500) return 900;
+    else throw new Error('💥 500: Something went wrong!').message;
   }
 
   getDoorCountPrice(): number {
-    return this.doorCount === 2 ? 1300 : 3400;
+    if (this.doorCount) {
+      if (this.doorCount === 2) return 1300;
+      else if (this.doorCount === 4) return 3400;
+    } else throw new Error('💥 500: Something went wrong!').message;
   }
 
   getColorPrice(): number {
     const colorPrice: { [white: string]: number; black: number; silver: number } = { white: 1200, black: 2100, silver: 1800 };
-    return colorPrice[this.color];
+    if (this.color && colorPrice[this.color]) return colorPrice[this.color];
+    else throw new Error('💥 500: Something went wrong!').message;
   }
 }
