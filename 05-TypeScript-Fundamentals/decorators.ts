@@ -29,7 +29,7 @@ export class DecorateDetails extends Car {
     else throw new Error('💥 500: Something went wrong!').message;
   }
   getHorsePowerPrice(): number {
-    const power = this.horsepower;
+    const power:number = this.horsepower;
     if (power && power > 100 && power < 300) return 780;
     else if (power && power > 300 && power < 500) return 900;
     else throw new Error('💥 500: Something went wrong!').message;
