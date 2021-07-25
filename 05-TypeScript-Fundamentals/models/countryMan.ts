@@ -20,5 +20,5 @@ class CountryMan extends DecorateDetails {
     return ` Car name: ${this.carModel}\n color: ${this.color}\n engine: ${this.engine}\n price: $${this.getTotalPrice()}`;
   }
 }
-const countryMan = new CountryMan('COUNTRYMAN', 'ass', 90, 3, 'white');
+const countryMan = new CountryMan('COUNTRYMAN', 'hybrid', 90, 3, 'white');
 console.log(countryMan.getMsg());
