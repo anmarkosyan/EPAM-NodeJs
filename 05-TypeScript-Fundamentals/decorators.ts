@@ -26,25 +26,25 @@ export class DecorateDetails extends Car {
     const enginePrice: { [hybrid: string]: number; oil: number } = { hybrid: 500, oil: 700 };
 
     if (this.engine && enginePrice[this.engine]) return enginePrice[this.engine];
-    else throw new Error('💥 500: Something went wrong!').message;
+    else throw new Error('💥 500 ERROR: Something went wrong!').message;
   }
   getHorsePowerPrice(): number {
     const power:number = this.horsepower;
     if (power && power > 100 && power < 300) return 780;
     else if (power && power > 300 && power < 500) return 900;
-    else throw new Error('💥 500: Something went wrong!').message;
+    else throw new Error('💥 500 ERROR: Something went wrong!').message;
   }
 
   getDoorCountPrice(): number {
     if (this.doorCount) {
       if (this.doorCount === 2) return 1300;
       else if (this.doorCount === 4) return 3400;
-    } else throw new Error('💥 500: Something went wrong!').message;
+    } else throw new Error('💥 500 ERROR: Something went wrong!').message;
   }
 
   getColorPrice(): number {
     const colorPrice: { [white: string]: number; black: number; silver: number } = { white: 1200, black: 2100, silver: 1800 };
     if (this.color && colorPrice[this.color]) return colorPrice[this.color];
-    else throw new Error('💥 500: Something went wrong!').message;
+    else throw new Error('💥 500 ERROR: Something went wrong!').message;
   }
 }
