@@ -112,9 +112,12 @@ const getTotalPrice = function (): string {
   const enginePrice = new Engine(mini, 'hybrid');
   const colorPrice = new Color(mini, 'white');
   const horsepowerPrice = new Horsepower(mini, 150);
+
   const addedPrice: number[] = [doorPrice.price(), enginePrice.price(), colorPrice.price(), horsepowerPrice.price()];
   const totalPrice = addedPrice.reduce((sum: number, num: number) => sum + num, 0) + mini.price();
+
   return ` Car Model:${mini.getMsg()}\n Color: ${colorPrice.color}\n Engine: ${enginePrice.engine}\n Total price: ${totalPrice}`;
 };
+
 const miniCooper = getTotalPrice();
 console.log(miniCooper)
