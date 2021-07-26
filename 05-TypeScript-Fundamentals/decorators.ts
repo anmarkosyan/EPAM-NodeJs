@@ -57,7 +57,7 @@ class Engine extends MiniCooperDecorator {
 
   constructor(engine: string) {
     super();
-    this.engine = engine;
+    this.engine = engine.toLowerCase();
   }
 
   price(): number {
@@ -74,7 +74,7 @@ class Color extends MiniCooperDecorator {
 
   constructor(color: string) {
     super();
-    this.color = color;
+    this.color = color.toLowerCase();
   }
 
   price(): number {
