@@ -20,7 +20,7 @@ fs.mkdir('../streamZipFiles', err => {
   else console.log('Created directory for zip files...');
 });
 
-//3️⃣ made unzip file to zip file
+//3️⃣ transform a writable stream
 const readFile = fs.createReadStream('../streamUnzipFiles/test1.txt', {
   highWaterMark: 9,
 });
