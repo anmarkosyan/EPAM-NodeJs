@@ -1,7 +1,6 @@
 const fs = require('fs');
 const zlib = require('zlib');
 
-
 //1️⃣ writing  file
 const writable = fs.createWriteStream(`../streamUnzipFiles/test1.txt`);
 
@@ -23,10 +22,9 @@ fs.mkdir('../streamZipFiles', err => {
 
 //3️⃣ made unzip file to zip file
 const readFile = fs.createReadStream('../streamUnzipFiles/test1.txt', {
-  highWaterMark: 9
+  highWaterMark: 9,
 });
 const writeFile = fs.createWriteStream('../streamZipFiles/test1.gzip');
-readFile.setEncoding('utf-8');
 readFile
   .pipe(zlib.createGzip())
   .pipe(writeFile)
