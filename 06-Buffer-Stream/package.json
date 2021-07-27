@@ -2,10 +2,10 @@
   "name": "06-buffer-stream",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "testing/index.js",
   "scripts": {
     "compile": "npx tsc",
-    "execute": "node ./dist/buffer.js",
+    "execute": "node ./dist/stream.js",
     "start": "npm run compile && npm run execute"
   },
   "author": "",
