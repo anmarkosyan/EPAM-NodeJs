@@ -1,5 +1,5 @@
 const fs = require('fs');
-const zlib = require('zlib');
+const zlib = require('zlib').createGzip();
 
 //1️⃣ writing  file
 const writable = fs.createWriteStream(`../streamUnzipFiles/test1.txt`);
@@ -26,7 +26,7 @@ const readFile = fs.createReadStream('../streamUnzipFiles/test1.txt', {
 });
 const writeFile = fs.createWriteStream('../streamZipFiles/test1.gzip');
 readFile
-  .pipe(zlib.createGzip())
+  .pipe(zlib)
   .pipe(writeFile)
   .on('finish', () => {
     console.log('Zipping process is done 😊');
