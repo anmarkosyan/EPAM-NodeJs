@@ -5,7 +5,8 @@ const zlib = require('zlib').createGzip();
 const writable = fs.createWriteStream(`../streamUnzipFiles/test1.txt`);
 
 for (let i = 0; i < 1000; i++) {
-  const chunk = 'Հոսքերը տվյալների հավաքածու են, ճիշտ այնպես, ինչպես զանգվածները կամ տողերը: ' +
+  const chunk =
+    'Հոսքերը տվյալների հավաքածու են, ճիշտ այնպես, ինչպես զանգվածները կամ տողերը: ' +
     'Տարբերությունն այն է, որ հոսքերը կարող են միանգամից հասանելի չլինել, և դրանք պարտադիր չէ, ' +
     'որ տեղավորվեն հիշողության մեջ:\n';
   writable.write(chunk);
