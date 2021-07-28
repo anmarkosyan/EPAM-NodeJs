@@ -4,8 +4,12 @@ const path = require('path');
 
 const filePath = process.argv[2];
 const allFiles = fs.readdirSync(filePath);
+const newDirPath = path.join(path.dirname(filePath), 'streamZipFiles');
 
-fs.mkdirSync('../streamZipFiles');
+ fs.mkdir(newDirPath, (err)=>{
+   if(err) throw err;
+   else console.log('zip directory created...')
+ });
 
 allFiles.forEach(file => {
   const readFile = fs.createReadStream(path.join(filePath, file), {
