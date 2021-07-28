@@ -1,32 +1,21 @@
 const fs = require('fs');
 const zlib = require('zlib').createGzip();
+const path = require('path');
 
-//1️⃣ writing  file
-const writable = fs.createWriteStream(`../streamUnzipFiles/test1.txt`);
+const filePath = process.argv[2];
+const allFiles = fs.readdirSync(filePath);
 
-for (let i = 0; i < 1000; i++) {
-  const chunk =
-    'Հոսքերը տվյալների հավաքածու են, ճիշտ այնպես, ինչպես զանգվածները կամ տողերը: ' +
-    'Տարբերությունն այն է, որ հոսքերը կարող են միանգամից հասանելի չլինել, և դրանք պարտադիր չէ, ' +
-    'որ տեղավորվեն հիշողության մեջ:\n';
-  writable.write(chunk);
-}
-writable.end();
+fs.mkdirSync('../streamZipFiles');
 
-//2️⃣ created a new directory
-fs.mkdir('../streamZipFiles', err => {
-  if (err) throw err;
-  else console.log('Created directory for zip files...');
-});
-
-//3️⃣ transform a writable stream
-const readFile = fs.createReadStream('../streamUnzipFiles/test1.txt', {
-  highWaterMark: 9,
-});
-const writeFile = fs.createWriteStream('../streamZipFiles/test1.gzip');
-readFile
-  .pipe(zlib)
-  .pipe(writeFile)
-  .on('finish', () => {
-    console.log('Zipping process is done 😊');
+allFiles.forEach(file => {
+  const readFile = fs.createReadStream(path.join(filePath, file), {
+    highWaterMark: 9,
   });
+  const writeFile = fs.createWriteStream(path.join('../streamZipFiles', file));
+  readFile
+    .pipe(zlib)
+    .pipe(writeFile)
+    .on('finish', () => {
+      console.log('Zipping process is done 😊');
+    });
+});
