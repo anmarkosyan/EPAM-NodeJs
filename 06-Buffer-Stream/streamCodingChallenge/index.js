@@ -8,20 +8,21 @@ const newDirPath = path.join(path.dirname(filePath), 'streamZipFiles');
 
  fs.mkdir(newDirPath, (err)=>{
    if(err) throw err;
-   else console.log('zip directory created...')
+
+   allFiles.forEach(file => {
+     const readFile = fs.createReadStream(path.join(filePath, file), {
+       highWaterMark: 9,
+     });
+     const writeFile = fs.createWriteStream(
+       path.join(newDirPath, file.replace(path.extname(file), '.gzip'))
+     );
+     readFile
+       .pipe(zlib)
+       .pipe(writeFile)
+       .on('finish', () => {
+         console.log('Zipping process is done 😊');
+       });
+   });
  });
 
-allFiles.forEach(file => {
-  const readFile = fs.createReadStream(path.join(filePath, file), {
-    highWaterMark: 9,
-  });
-  const writeFile = fs.createWriteStream(
-    path.join(newDirPath, file.replace(path.extname(file), '.gzip'))
-  );
-  readFile
-    .pipe(zlib)
-    .pipe(writeFile)
-    .on('finish', () => {
-      console.log('Zipping process is done 😊');
-    });
-});
+
