@@ -11,7 +11,7 @@ allFiles.forEach(file => {
   const readFile = fs.createReadStream(path.join(filePath, file), {
     highWaterMark: 9,
   });
-  const writeFile = fs.createWriteStream(path.join('../streamZipFiles', file));
+  const writeFile = fs.createWriteStream(path.join('../streamZipFiles', file + '.gzip'));
   readFile
     .pipe(zlib)
     .pipe(writeFile)
