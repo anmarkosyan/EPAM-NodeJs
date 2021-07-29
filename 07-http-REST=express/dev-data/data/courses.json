@@ -28,5 +28,55 @@
     "summary": "Exploring Angular fundamentals",
     "description": "EPAM systems organize Angular course from zero to advance!",
     "startDates": ["2021-06-19,10:00", "2021-07-20,10:00", "2021-08-18,10:00"]
+  },
+  {
+    "id": 4,
+    "name": "Automated Testing",
+    "duration": 3,
+    "maxGroupSize": 25,
+    "difficulty": "basic",
+    "summary": "Automated testing or QA Automation combines programming, QA, and analytics",
+    "description": "During our training course, you may get Automation Engineer skills, and learn one of the “TOP 4” programming languages for a great career kick-off.",
+    "startDates": ["2021-06-19,10:00", "2021-07-20,10:00", "2021-08-18,10:00"]
+  },
+  {
+    "id": 5,
+    "name": "Automated Testing",
+    "duration": 3,
+    "maxGroupSize": 25,
+    "difficulty": "basic",
+    "summary": "Automated testing or QA Automation combines programming, QA, and analytics",
+    "description": "During our training course, you may get Automation Engineer skills, and learn one of the “TOP 4” programming languages for a great career kick-off.",
+    "startDates": ["2021-06-19,10:00", "2021-07-20,10:00", "2021-08-18,10:00"]
+  },
+  {
+    "id": 6,
+    "name": "Automated Testing",
+    "duration": 3,
+    "maxGroupSize": 25,
+    "difficulty": "basic",
+    "summary": "Automated testing or QA Automation combines programming, QA, and analytics",
+    "description": "During our training course, you may get Automation Engineer skills, and learn one of the “TOP 4” programming languages for a great career kick-off.",
+    "startDates": ["2021-06-19,10:00", "2021-07-20,10:00", "2021-08-18,10:00"]
+  },
+  {
+    "id": 7,
+    "name": "Automated Testing",
+    "duration": 3,
+    "maxGroupSize": 25,
+    "difficulty": "basic",
+    "summary": "Automated testing or QA Automation combines programming, QA, and analytics",
+    "description": "During our training course, you may get Automation Engineer skills, and learn one of the “TOP 4” programming languages for a great career kick-off.",
+    "startDates": ["2021-06-19,10:00", "2021-07-20,10:00", "2021-08-18,10:00"]
+  },
+  {
+    "id": 8,
+    "name": "Automated Testing",
+    "duration": 3,
+    "maxGroupSize": 15,
+    "difficulty": "basic",
+    "summary": "Automated testing or QA Automation combines programming, QA, and analytics",
+    "description": "During our training course, you may get Automation Engineer skills, and learn one of the “TOP 4” programming languages for a great career kick-off.",
+    "startDates": ["2021-06-19,10:00", "2021-07-20,10:00", "2021-08-18,10:00"]
   }
 ]
