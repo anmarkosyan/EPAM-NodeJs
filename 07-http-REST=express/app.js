@@ -6,13 +6,24 @@ const app = express();
 const __dirname = path.resolve();
 const courses = JSON.parse(fs.readFileSync(`${__dirname}/dev-data/data/courses.json`, 'utf-8'));
 
-//middlewares
+//global middlewares
 app.use(express.json());
+app.use((req, res, next) => {
+  console.log('hello from the middleware🔮');
+  next();
+});
+
+app.use((req, res, next)=>{
+req.requestTime = new Date().toISOString();
+next();
+})
 
 //route handles
 const getAllCourses = (req, res) => {
+  //console.log(req.requestTime);
   res.status(200).json({
     status: 'success',
+    requestedAt:req.requestTime,
     results: courses.length,
     data: {
       courses,
