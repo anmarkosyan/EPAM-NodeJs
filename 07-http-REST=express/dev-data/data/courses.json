@@ -6,8 +6,7 @@
     "maxGroupSize": 35,
     "difficulty": "medium",
     "summary": "Exploring JS fundamentals",
-    "description": "EPAM systems organize JS course from zero to advance!",
-    "startDates": ["2021-06-19,10:00", "2021-07-20,10:00", "2021-08-18,10:00"]
+    "description": "EPAM systems organize JS course from zero to advance!"
   },
   {
     "id": 2,
@@ -16,8 +15,7 @@
     "maxGroupSize": 25,
     "difficulty": "medium",
     "summary": "Exploring node js fundamentals",
-    "description": "EPAM systems organize Node js course from zero to advance!",
-    "startDates": ["2021-06-19,10:00", "2021-07-20,10:00", "2021-08-18,10:00"]
+    "description": "EPAM systems organize Node js course from zero to advance!"
   },
   {
     "id": 3,
@@ -26,8 +24,7 @@
     "maxGroupSize": 25,
     "difficulty": "medium",
     "summary": "Exploring Angular fundamentals",
-    "description": "EPAM systems organize Angular course from zero to advance!",
-    "startDates": ["2021-06-19,10:00", "2021-07-20,10:00", "2021-08-18,10:00"]
+    "description": "EPAM systems organize Angular course from zero to advance!"
   },
   {
     "id": 4,
@@ -36,8 +33,7 @@
     "maxGroupSize": 25,
     "difficulty": "basic",
     "summary": "Automated testing or QA Automation combines programming, QA, and analytics",
-    "description": "During our training course, you may get Automation Engineer skills, and learn one of the “TOP 4” programming languages for a great career kick-off.",
-    "startDates": ["2021-06-19,10:00", "2021-07-20,10:00", "2021-08-18,10:00"]
+    "description": "During our training course, you may get Automation Engineer skills, and learn one of the “TOP 4” programming languages for a great career kick-off."
   },
   {
     "id": 5,
@@ -46,8 +42,7 @@
     "maxGroupSize": 25,
     "difficulty": "basic",
     "summary": "Automated testing or QA Automation combines programming, QA, and analytics",
-    "description": "During our training course, you may get Automation Engineer skills, and learn one of the “TOP 4” programming languages for a great career kick-off.",
-    "startDates": ["2021-06-19,10:00", "2021-07-20,10:00", "2021-08-18,10:00"]
+    "description": "During our training course, you may get Automation Engineer skills, and learn one of the “TOP 4” programming languages for a great career kick-off."
   },
   {
     "id": 6,
@@ -56,8 +51,7 @@
     "maxGroupSize": 25,
     "difficulty": "basic",
     "summary": "Automated testing or QA Automation combines programming, QA, and analytics",
-    "description": "During our training course, you may get Automation Engineer skills, and learn one of the “TOP 4” programming languages for a great career kick-off.",
-    "startDates": ["2021-06-19,10:00", "2021-07-20,10:00", "2021-08-18,10:00"]
+    "description": "During our training course, you may get Automation Engineer skills, and learn one of the “TOP 4” programming languages for a great career kick-off."
   },
   {
     "id": 7,
@@ -66,7 +60,6 @@
     "maxGroupSize": 25,
     "difficulty": "basic",
     "summary": "Automated testing or QA Automation combines programming, QA, and analytics",
-    "description": "During our training course, you may get Automation Engineer skills, and learn one of the “TOP 4” programming languages for a great career kick-off.",
-    "startDates": ["2021-06-19,10:00", "2021-07-20,10:00", "2021-08-18,10:00"]
+    "description": "During our training course, you may get Automation Engineer skills, and learn one of the “TOP 4” programming languages for a great career kick-off."
   }
 ]
