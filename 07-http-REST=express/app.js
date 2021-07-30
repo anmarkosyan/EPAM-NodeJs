@@ -9,8 +9,8 @@ const courses = JSON.parse(fs.readFileSync(`${__dirname}/dev-data/data/courses.j
 //middlewares
 app.use(express.json());
 
-//1️⃣ HTTP get method
-app.get('/api/v1/courses', (req, res) => {
+//route handles
+const getAllCourses = (req, res) => {
   res.status(200).json({
     status: 'success',
     results: courses.length,
@@ -18,9 +18,9 @@ app.get('/api/v1/courses', (req, res) => {
       courses,
     },
   });
-});
-//2️⃣ get one course
-app.get('/api/v1/courses/:id', (req, res) => {
+};
+
+const getCourse = (req, res) => {
   //console.log(req.params);
   const id = Number(req.params.id); // req.params.id * 1;
   const course = courses.find(el => el.id === id);
@@ -38,10 +38,9 @@ app.get('/api/v1/courses/:id', (req, res) => {
       },
     });
   }
-});
+};
 
-//3️⃣ HTTP post method
-app.post('/api/v1/courses', (req, res) => {
+const createCourse = (req, res) => {
   //console.log(req.body);
   const newId = courses[courses.length - 1].id + 1;
   const newCourse = Object.assign({ id: newId }, req.body);
@@ -58,10 +57,9 @@ app.post('/api/v1/courses', (req, res) => {
       },
     });
   });
-});
+};
 
-//4️⃣ HTTP patch method
-app.patch('/api/v1/courses/:id', (req, res) => {
+const updateCourse = (req, res) => {
   //console.log(req.params, req.body);
   const id = Number(req.params.id);
   const course = courses.find(el => el.id === id);
@@ -91,10 +89,9 @@ app.patch('/api/v1/courses/:id', (req, res) => {
       });
     });
   }
-});
+};
 
-//5️⃣ HTTP delete method
-app.delete('/api/v1/courses/:id', (req, res) => {
+const deleteCourse = (req, res) => {
   const id = Number(req.params.id);
   let course = courses.find(el => el.id === id);
 
@@ -116,9 +113,13 @@ app.delete('/api/v1/courses/:id', (req, res) => {
       });
     });
   }
-});
+};
 
-//creating server
+//routes
+app.route('/api/v1/courses').get(getAllCourses).post(createCourse);
+app.route('/api/v1/courses/:id').get(getCourse).patch(updateCourse).delete(deleteCourse);
+
+//creat server
 const port = 8000;
 app.listen(port, () => {
   console.log(`Listening a server on ${port} port...`);
