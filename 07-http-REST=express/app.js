@@ -19,7 +19,7 @@ app.get('/api/v1/courses', (req, res) => {
     },
   });
 });
-
+//2️⃣ get one course
 app.get('/api/v1/courses/:id', (req, res) => {
   //console.log(req.params);
   const id = Number(req.params.id); // req.params.id * 1;
@@ -40,7 +40,7 @@ app.get('/api/v1/courses/:id', (req, res) => {
   }
 });
 
-//2️⃣ HTTP post method
+//3️⃣ HTTP post method
 app.post('/api/v1/courses', (req, res) => {
   //console.log(req.body);
   const newId = courses[courses.length - 1].id + 1;
@@ -60,13 +60,11 @@ app.post('/api/v1/courses', (req, res) => {
   });
 });
 
-//3️⃣ HTTP patch method
+//4️⃣ HTTP patch method
 app.patch('/api/v1/courses/:id', (req, res) => {
   //console.log(req.params, req.body);
   const id = Number(req.params.id);
   const course = courses.find(el => el.id === id);
-  const updateCourse = Object.assign(course, req.body);
-  //console.log(updateCourse);
 
   if (!course) {
     return res.status(404).json({
@@ -74,6 +72,9 @@ app.patch('/api/v1/courses/:id', (req, res) => {
       message: 'Invalid ID',
     });
   } else {
+    const updateCourse = Object.assign(course, req.body);
+    //console.log(updateCourse);
+
     for (let el of courses) {
       if (el.id === updateCourse.id) {
         el = updateCourse;
@@ -92,7 +93,30 @@ app.patch('/api/v1/courses/:id', (req, res) => {
   }
 });
 
-app.delete('/api/v1/courses/:id', (req, res) => {});
+//5️⃣ HTTP delete method
+app.delete('/api/v1/courses/:id', (req, res) => {
+  const id = Number(req.params.id);
+  let course = courses.find(el => el.id === id);
+
+  if (!course) {
+    return res.status(404).json({
+      status: 'Fail',
+      message: 'Invalid ID',
+    });
+  } else {
+    const index = courses.indexOf(course);
+    courses.splice(index, 1);
+    //console.log(courses);
+
+    fs.writeFile(`${__dirname}/dev-data/data/courses.json`, JSON.stringify(courses), err => {
+      if (err) throw err;
+      res.status(204).json({
+        status: 'success',
+        data: null,
+      });
+    });
+  }
+});
 
 //creating server
 const port = 8000;
