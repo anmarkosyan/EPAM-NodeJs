@@ -1,29 +1,26 @@
 import fs from 'fs';
 import path from 'path';
 import express from 'express';
+import morgan from 'morgan';
 
 const app = express();
 const __dirname = path.resolve();
 const courses = JSON.parse(fs.readFileSync(`${__dirname}/dev-data/data/courses.json`, 'utf-8'));
 
-//global middlewares
+//1️⃣ MIDDLEWARES
+app.use(morgan('dev'));
 app.use(express.json());
 app.use((req, res, next) => {
-  console.log('hello from the middleware🔮');
+  req.requestTime = new Date().toISOString();
   next();
 });
 
-app.use((req, res, next)=>{
-req.requestTime = new Date().toISOString();
-next();
-})
-
-//route handles
+//2️⃣ ROUTE HANDLERS
 const getAllCourses = (req, res) => {
   //console.log(req.requestTime);
   res.status(200).json({
     status: 'success',
-    requestedAt:req.requestTime,
+    requestedAt: req.requestTime,
     results: courses.length,
     data: {
       courses,
@@ -55,9 +52,7 @@ const createCourse = (req, res) => {
   //console.log(req.body);
   const newId = courses[courses.length - 1].id + 1;
   const newCourse = Object.assign({ id: newId }, req.body);
-
   courses.push(newCourse);
-  //console.log(courses);
 
   fs.writeFile(`${__dirname}/dev-data/data/courses.json`, JSON.stringify(courses), err => {
     if (err) throw err;
@@ -82,7 +77,6 @@ const updateCourse = (req, res) => {
     });
   } else {
     const updateCourse = Object.assign(course, req.body);
-    //console.log(updateCourse);
 
     for (let el of courses) {
       if (el.id === updateCourse.id) {
@@ -126,11 +120,20 @@ const deleteCourse = (req, res) => {
   }
 };
 
-//routes
-app.route('/api/v1/courses').get(getAllCourses).post(createCourse);
-app.route('/api/v1/courses/:id').get(getCourse).patch(updateCourse).delete(deleteCourse);
+//3️⃣ ROUTES
+const courseRouter = express.Router();
+const userRouter = express.Router();
 
-//creat server
+app.use('/api/v1/courses', courseRouter);
+app.use('/api/v1/users', userRouter);
+
+courseRouter.route('/').get(getAllCourses).post(createCourse);
+courseRouter.route('/:id').get(getCourse).patch(updateCourse).delete(deleteCourse);
+
+// userRouter.route('/').get(getAllUsers).post(createUser);
+// userRouter.route('/:id').get(getUser).patch(updateUser).delete(deleteUser);
+
+//4️⃣ START SERVER
 const port = 8000;
 app.listen(port, () => {
   console.log(`Listening a server on ${port} port...`);
