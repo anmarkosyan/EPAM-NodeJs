@@ -72,11 +72,11 @@ export const updateCourse = (req, res) => {
   } else {
     const updateCourse = Object.assign(course, req.body);
 
-    for (let el of courses) {
+    courses.forEach(el => {
       if (el.id === updateCourse.id) {
         el = updateCourse;
       }
-    }
+    });
 
     fs.writeFile(
       `${__dirname}/dev-data/data/courses.json`,
