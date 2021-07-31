@@ -29,7 +29,7 @@
   {
     "id": 4,
     "name": "Automated Testing",
-    "duration": 3,
+    "duration": 2,
     "maxGroupSize": 25,
     "difficulty": "basic",
     "summary": "Automated testing or QA Automation combines programming, QA, and analytics",
@@ -37,24 +37,6 @@
   },
   {
     "id": 5,
-    "name": "Automated Testing",
-    "duration": 3,
-    "maxGroupSize": 25,
-    "difficulty": "basic",
-    "summary": "Automated testing or QA Automation combines programming, QA, and analytics",
-    "description": "During our training course, you may get Automation Engineer skills, and learn one of the “TOP 4” programming languages for a great career kick-off."
-  },
-  {
-    "id": 6,
-    "name": "Automated Testing",
-    "duration": 3,
-    "maxGroupSize": 25,
-    "difficulty": "basic",
-    "summary": "Automated testing or QA Automation combines programming, QA, and analytics",
-    "description": "During our training course, you may get Automation Engineer skills, and learn one of the “TOP 4” programming languages for a great career kick-off."
-  },
-  {
-    "id": 7,
     "name": "Automated Testing",
     "duration": 3,
     "maxGroupSize": 25,
