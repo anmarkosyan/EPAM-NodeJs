@@ -29,7 +29,7 @@
   {
     "id": 4,
     "name": "Automated Testing",
-    "duration": 2,
+    "duration": 76,
     "maxGroupSize": 25,
     "difficulty": "basic",
     "summary": "Automated testing or QA Automation combines programming, QA, and analytics",
