@@ -1,7 +1,6 @@
 import express from 'express';
 import morgan from 'morgan';
 import courseRouter from './routes/courseRoutes.js';
-import userRouter from './routes/userRoutes.js';
 
 const app = express();
 
@@ -15,6 +14,5 @@ app.use((req, res, next) => {
 
 // ROUTES
 app.use('/api/v1/courses', courseRouter);
-app.use('/api/v1/users', userRouter);
 
 export default app;
