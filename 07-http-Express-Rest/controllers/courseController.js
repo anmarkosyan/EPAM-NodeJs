@@ -6,10 +6,9 @@ const courses = JSON.parse(
   fs.readFileSync(`${__dirname}/dev-data/data/courses.json`, 'utf-8')
 );
 
+//param middleware function
 export const checkID = (req, res, next, val) => {
-  console.log(val);
-
-  if (req.body.id * 1 > courses.length) {
+  if (req.params.id * 1 > courses.length) {
     return res.status(404).json({
       status: 'Fail',
       message: 'Invalid ID',
@@ -74,7 +73,7 @@ export const updateCourse = (req, res) => {
       return updateCourse;
     }
   });
-  console.log(courses);
+
   fs.writeFile(
     `${__dirname}/dev-data/data/courses.json`,
     JSON.stringify(courses),
@@ -92,28 +91,19 @@ export const updateCourse = (req, res) => {
 
 export const deleteCourse = (req, res) => {
   const id = Number(req.params.id);
-  let course = courses.find(el => el.id === id);
+  const course = courses.find(el => el.id === id);
+  const index = courses.indexOf(course);
+  courses.splice(index, 1);
 
-  if (!course) {
-    return res.status(404).json({
-      status: 'Fail',
-      message: 'Invalid ID',
-    });
-  } else {
-    const index = courses.indexOf(course);
-    courses.splice(index, 1);
-    //console.log(courses);
-
-    fs.writeFile(
-      `${__dirname}/dev-data/data/courses.json`,
-      JSON.stringify(courses),
-      err => {
-        if (err) throw err;
-        res.status(204).json({
-          status: 'success',
-          data: null,
-        });
-      }
-    );
-  }
+  fs.writeFile(
+    `${__dirname}/dev-data/data/courses.json`,
+    JSON.stringify(courses),
+    err => {
+      if (err) throw err;
+      res.status(204).json({
+        status: 'success',
+        data: null,
+      });
+    }
+  );
 };
