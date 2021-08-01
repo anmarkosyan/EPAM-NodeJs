@@ -16,6 +16,28 @@ export const checkID = (req, res, next, val) => {
   }
   next();
 };
+
+//check body field middleware only for post requests
+export const checkBody = (req, res, next) => {
+  const {
+    name,
+    duration,
+    maxGroupSize,
+    difficulty,
+    summary,
+    description,
+  } = req.body;
+  if (
+    !(name && duration && maxGroupSize && difficulty && summary && description)
+  ) {
+    return res.status(400).json({
+      status: 'Bad request!',
+      message: 'Fill all required fields for success process!',
+    });
+  }
+
+  next();
+};
 export const getAllCourses = (req, res) => {
   //console.log(req.requestTime);
   res.status(200).json({
