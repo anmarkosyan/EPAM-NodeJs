@@ -7,6 +7,6 @@ services:
     volumes:
       - ./:/app
     environment:
-      - PORT=8000
+      - PORT=8080
     #env_file:
      # - ./.env
