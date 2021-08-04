@@ -1,12 +1,13 @@
 FROM node:14.17
-FROM ubuntu:20.04
+#FROM ubuntu:20.04
 
 WORKDIR /app
-COPY package*.json .
+COPY ["package.json", "package-lock.json*", "./"]
 RUN npm install
-COPY . ./
+COPY . .
+
 EXPOSE 8080
-CMD ['nodemon', 'app.js']
+CMD ["node", "app.js"]
 
 
 
