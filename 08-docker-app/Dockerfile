@@ -1,6 +1,4 @@
 FROM node:14.17
-#FROM ubuntu:20.04
-
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
@@ -10,6 +8,7 @@ ENV PORT 8080
 EXPOSE $PORT
 CMD ["npm", "run", "dev"]
 
+#FROM ubuntu:20.04
 
 
 
