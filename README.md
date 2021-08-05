@@ -26,7 +26,7 @@
 
 
 - **05: TypeScript**
-  - Fundamentals-part1
+  - Fundamentals: part1
   
   
 
@@ -43,3 +43,7 @@
 
 
 - **08: Docker**
+
+
+- **09: Typescript**
+  -Fundamentals: part-2
