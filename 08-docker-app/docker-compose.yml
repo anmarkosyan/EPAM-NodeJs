@@ -10,11 +10,14 @@ services:
       - PORT=8080
     #env_file:
     # - ./.env
+    depends_on:
+      - db
 
   db:
     image: mysql:8.0
     environment:
       - MYSQL_ROOT_PASSWORD=anroot
+      - MYSQL_DATABASE=test_db
     volumes:
       - mysql-db:/var/lib/mysql
 
