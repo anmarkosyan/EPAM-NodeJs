@@ -1,0 +1,17 @@
+{
+  "name": "09-typescript-part2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "npx tsc",
+    "execute": "node ./dist/index.js",
+    "start": "npm run compile && npm run execute"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^16.4.11",
+    "typescript": "^4.3.5"
+  }
+}
