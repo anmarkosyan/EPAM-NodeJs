@@ -1,8 +1,8 @@
 import express from 'express';
 
 const app = express();
-app.get('/api/v1', (req, res) => {
-  res.send('<h1>Hello from the server 💥🎉 Now we can run our docker container)))</h1>');
+app.get('/api/v1', (req, res)=> {
+  res.send('Hello from the server💥🎉 Now we can run our docker container)))');
 });
 
 
