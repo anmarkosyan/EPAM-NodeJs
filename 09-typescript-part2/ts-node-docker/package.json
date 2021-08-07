@@ -1,0 +1,20 @@
+{
+  "name": "ts-node-docker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "npx tsc",
+    "execute": "node ./dist/index.js",
+    "start": "npm run compile && npm run execute"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "4.3.5"
+  },
+  "devDependencies": {
+    "@types/node": "^16.4.13"
+  }
+}
