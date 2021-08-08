@@ -45,5 +45,7 @@
 - **08: Docker**
 
 
-- **09: Typescript**
-  -Fundamentals: part-2
+- **09: Typescript-part2**
+  - enum, namespace, type, interface
+  - generics
+  - webpack
