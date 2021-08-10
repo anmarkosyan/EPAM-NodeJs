@@ -2,11 +2,11 @@
   "name": "project1",
   "version": "1.0.0",
   "description": "Learning typescript-node-express-docker",
-  "main": "index.js",
+  "main": "src/email.ts",
   "scripts": {
-    "start": "node ./dist/server.js",
-    "dev": "nodemon ./src/server.ts",
-    "dev:test": "cross-env DEBUG=express:*,app:* nodemon mail-project/src/server.ts",
+    "start": "node ./dist/email.js",
+    "dev": "nodemon ./src/email.ts",
+    "dev:test": "cross-env DEBUG=express:*,app:* nodemon mail-project/src/email.ts",
     "build": "tsc -p ."
   },
   "keywords": [],
@@ -20,10 +20,14 @@
     "cross-env": "^7.0.3",
     "nodemon": "^2.0.12",
     "ts-node": "^10.2.0",
-    "tslint": "^6.1.3",
     "typescript": "^4.3.5"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "@types/nodemailer": "^6.4.4",
+    "@types/nodemailer-direct-transport": "^1.0.32",
+    "@types/nodemailer-smtp-transport": "^2.7.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "nodemailer": "^6.6.3"
   }
 }
