@@ -2,9 +2,9 @@
   "name": "10-node-core-modules",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "lesson-test/src/index.js",
   "scripts": {
-    "dev": "cross-env DEBUG=express:*,app:* nodemon ./src/server.ts"
+    "dev": "../node_modules/.bin/cross-env DEBUG=express:*,app:* nodemon lesson-test/src/server.ts"
   },
   "keywords": [],
   "author": "",

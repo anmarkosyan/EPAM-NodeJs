@@ -11,6 +11,11 @@
     "strictNullChecks": true,
     "target": "es6"
   },
-  "include": ["src/**/*.ts", "src/**/*.js"],
-  "exclude": ["**/*.test.ts", "**/*.test.js", "node_modules"]
+  "include": [
+    "lesson-test/src/**/*.ts",
+    "lesson-test/src/**/*.js"
+  ],
+  "exclude": ["**/*.test.ts", "**/*.test.js",
+    "../node_modules"
+  ]
 }
