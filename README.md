@@ -49,3 +49,11 @@
   - enum, namespace, type, interface
   - generics
   - webpack
+
+
+- **10: Node-typescript-docker**
+  - new npm packages
+  - more about Docker
+  - nginx
+
+  
