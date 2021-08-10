@@ -4,9 +4,9 @@
   "description": "Learning typescript-node-express-docker",
   "main": "src/email.ts",
   "scripts": {
-    "start": "node ./dist/email.js",
-    "dev": "nodemon ./src/email.ts",
-    "dev:test": "cross-env DEBUG=express:*,app:* nodemon mail-project/src/email.ts",
+    "start": "node ./dist/app.js",
+    "dev": "nodemon ./src/app.ts",
+    "dev:test": "cross-env DEBUG=express:*,app:* nodemon mail-project/src/app.ts",
     "build": "tsc -p ."
   },
   "keywords": [],
@@ -23,11 +23,13 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
+    "@types/node-cron": "^2.0.4",
     "@types/nodemailer": "^6.4.4",
     "@types/nodemailer-direct-transport": "^1.0.32",
     "@types/nodemailer-smtp-transport": "^2.7.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "node-cron": "^3.0.0",
     "nodemailer": "^6.6.3"
   }
 }
