@@ -2,11 +2,11 @@
   "name": "project1",
   "version": "1.0.0",
   "description": "Learning typescript-node-express-docker",
-  "main": "src/email.ts",
+  "main": "src/server.ts",
   "scripts": {
     "start": "node ./dist/app.js",
-    "dev": "nodemon ./src/app.ts",
-    "dev:test": "cross-env DEBUG=express:*,app:* nodemon mail-project/src/app.ts",
+    "dev": "nodemon ./src/server.ts",
+    "dev:debug": "cross-env DEBUG=express:*,app:* nodemon mail-project/src/server.ts",
     "build": "tsc -p ."
   },
   "keywords": [],

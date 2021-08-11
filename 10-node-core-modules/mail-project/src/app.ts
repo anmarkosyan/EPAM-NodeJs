@@ -1,9 +1,10 @@
-import dotenv from 'dotenv';
-import cron from 'node-cron';
-import sendEmail from './email';
+import express from 'express';
+import emailRoutes from '../router/emailsRoutes';
 
-dotenv.config();
 
-cron.schedule('5 * * * * ', async function () {
-  await sendEmail();
-});
+const app = express();
+app.use(express.json());
+
+app.use('/api/v1/emails/', emailRoutes);
+
+export default app;
