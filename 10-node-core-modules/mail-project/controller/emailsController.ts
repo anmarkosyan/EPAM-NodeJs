@@ -57,7 +57,7 @@ export const sendEmailController = (req: Request, res: Response) => {
   const message = req.body.message;
 
   try {
-    cron.schedule('5 * * * * ', async function () {
+    cron.schedule('*/5 * * * * ', async function () {
       await sendEmail({
         email,
         subject,
