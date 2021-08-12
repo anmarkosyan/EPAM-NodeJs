@@ -8,15 +8,4 @@ router.patch(
   emailControllers.sendEmailController
 );
 
-router
-  .route('/')
-  .get(emailControllers.getAllEmails)
-  .post(emailControllers.createEmail);
-
-router
-  .route('/:id')
-  .get(emailControllers.getEmail)
-  .patch(emailControllers.updateEmail)
-  .delete(emailControllers.deleteEmail);
-
 export default router;

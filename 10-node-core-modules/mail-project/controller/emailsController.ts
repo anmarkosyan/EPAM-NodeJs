@@ -2,7 +2,6 @@ import express, { Application, Request, Response, NextFunction } from 'express';
 import cron from 'node-cron';
 import sendEmail from '../utils/email';
 
-
 //check update body middleware
 export const checkBody = (req: Request, res: Response, next: NextFunction) => {
   const { name, email, subject, message } = req.body;
@@ -14,41 +13,6 @@ export const checkBody = (req: Request, res: Response, next: NextFunction) => {
   }
 
   next();
-};
-
-export const getAllEmails = (req: Request, res: Response) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'This route is not yet defined!',
-  });
-};
-
-export const getEmail = (req: Request, res: Response) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'This route is not yet defined!',
-  });
-};
-
-export const createEmail = (req: Request, res: Response) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'This route is not yet defined!',
-  });
-};
-
-export const updateEmail = (req: Request, res: Response) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'This route is not yet defined!',
-  });
-};
-
-export const deleteEmail = (req: Request, res: Response) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'This route is not yet defined!',
-  });
 };
 
 export const sendEmailController = (req: Request, res: Response) => {
