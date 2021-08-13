@@ -1,10 +1,12 @@
 import express, { Application, Request, Response, NextFunction } from 'express';
+import cors from 'cors';
 import emailRoutes from '../router/emailsRoutes';
 import { AppError } from '../utils/appError';
 import { globalErrorHandler } from '../controller/errorController';
 
 const app = express();
 app.use(express.json());
+app.use(cors({}));
 
 app.use('/api/v1/', emailRoutes);
 
