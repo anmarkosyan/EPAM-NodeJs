@@ -1,19 +1,6 @@
-import express, { Application, Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 import cron from 'node-cron';
 import sendEmail from '../utils/email';
-
-//check update body middleware
-export const checkBody = (req: Request, res: Response, next: NextFunction) => {
-  const { name, email, subject, message } = req.body;
-  if (!(name && email && subject && message)) {
-    return res.status(400).json({
-      status: 'Bad request!',
-      message: 'Fill all required fields for success process!',
-    });
-  }
-
-  next();
-};
 
 export const sendEmailController = (req: Request, res: Response) => {
   const email = req.body.email;
