@@ -4,9 +4,9 @@
   "description": "Learning typescript-node-express-docker",
   "main": "src/server.ts",
   "scripts": {
-    "start": "node --inspect ./dist/src/server.js",
-    "dev": "nodemon  ./src/server.ts",
-    "dev:debug": " cross-env DEBUG=express:*,app:* nodemon ./src/server.ts",
+    "start": "node ./dist/src/server.js",
+    "dev:consoleDebug": "nodemon -e ts -w src -x \"node --inspect -r ts-node/register ./src/server.ts\"",
+    "dev:debug": "cross-env DEBUG=express:*,app:* nodemon ./src/server.ts",
     "build": "tsc -p ."
   },
   "keywords": [],
