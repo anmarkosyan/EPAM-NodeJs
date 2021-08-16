@@ -1,0 +1,6 @@
+user=1
+user.name=Harout
+user.name.age=33
+user.name.age.address=Yerevan
+
+
