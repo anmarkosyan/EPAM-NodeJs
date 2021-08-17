@@ -1,28 +1,35 @@
-import fs, { read } from 'fs';
+import fs from 'fs';
 import path from 'path';
 import { Request, Response } from 'express';
 
-const func = function (chunk: string): any {
-  console.log(chunk.toString());
-};
 export const writeFile = (req: Request, res: Response) => {
   const __dirname = path.resolve();
-  const writeFilePath = `${__dirname}/src/data/bigData.json`;
   const readFilePath = `${__dirname}/src/data/bigData.txt`;
+  const writeFilePath = `${__dirname}/src/data/bigData.json`;
+  const readFile = fs.readFileSync(readFilePath, 'utf-8');
 
-  const readable = fs.createReadStream(readFilePath);
-  readable.setEncoding('utf-8');
+  const arr = readFile.split('\n');
+  const obj:any = {};
 
-  //let str = '';
-  readable.on('data', chunk => {
-    fs.writeFileSync(writeFilePath, chunk);
-    console.log('done!');
-  });
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].includes('.') || arr[i].includes('=')) {
+      const inxStart = arr[i].lastIndexOf('.');
+      const index = arr[i].indexOf('=');
 
+      const key = arr[i].slice(inxStart + 1, index);
+      const value = arr[i].slice(index + 1);
 
-    res.status(200).json({
+      if (!obj[key]) {
+        obj[key] = value;
+      }
+    }
+  }
+  const data = [obj];
+  fs.writeFile(writeFilePath, JSON.stringify(data), err => {
+    if (err) throw err;
+    res.status(201).json({
       status: 'success',
-      data: 'File is ready!!',
+      data,
     });
-
+  });
 };
