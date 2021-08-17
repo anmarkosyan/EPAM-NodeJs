@@ -1,5 +1,6 @@
 user=1
-user.name=Harout
+user.name=Jonas
 user.name.age=33
 user.name.age.country=Armenia
 user.name.age.country.city=Yerevan
+user.name.age.country.city.family=true
