@@ -1,4 +1,4 @@
-import express, { Application, Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 
 class BlogController {
   constructor() {}

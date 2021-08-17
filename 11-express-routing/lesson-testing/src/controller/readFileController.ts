@@ -1,18 +1,16 @@
-import express, { Request, Response } from 'express';
 import fs from 'fs';
 import path from 'path';
+import { Request, Response } from 'express';
+
 
 export const readFile = (req: Request, res: Response) => {
   const __dirname = path.resolve();
+  const filePath = `${__dirname}/src/data/bigData.txt`;
 
-  const readFileStream = fs.createReadStream(
-    `${__dirname}/src/data/bigData.txt`
-  );
-
-  readFileStream.pipe(
+   fs.createReadStream(filePath).pipe(
     res.status(200).json({
       status: 'success',
-      message: 'Reading text is done🎉',
+      message: 'Reading text is done 🎉',
     })
   );
 };
