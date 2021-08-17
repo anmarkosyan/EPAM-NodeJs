@@ -9,7 +9,7 @@ export const writeFile = (req: Request, res: Response) => {
   const readFile = fs.readFileSync(readFilePath, 'utf-8');
 
   const arr = readFile.split('\n');
-  const obj:any = {};
+  const obj:Record<string, any>  = {};
 
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].includes('.') || arr[i].includes('=')) {

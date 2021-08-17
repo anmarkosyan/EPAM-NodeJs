@@ -1,6 +1,6 @@
-user=1
-user.name=Jonas
-user.name.age=33
-user.name.age.country=Armenia
-user.name.age.country.city=Yerevan
-user.name.age.country.city.family=true
+user.id=1
+user.name=Aram
+user.age=33
+user.birthday.year=1986
+user.birthday.month=3
+user.birthday.day=6
