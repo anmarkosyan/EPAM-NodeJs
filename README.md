@@ -67,7 +67,9 @@
   - final test app
 
 
-- **13: SQL:mySQL**
+- **13: SQL**
+  - DBMS:RDBMS
+  - postgreSQL
   
 
   
