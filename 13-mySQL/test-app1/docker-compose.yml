@@ -17,7 +17,7 @@ services:
     container_name: pg-docker
     environment:
       POSTGRES_DB: pgdata
-      POSTGRES_USE: pguser
+      POSTGRES_USER: pguser
       POSTGRES_PASSWORD: pg1234
     ports:
       - '5432:5432'
