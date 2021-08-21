@@ -13,7 +13,7 @@ services:
   db:
     image: postgres:alpine
     volumes:
-      - ./pgdata:/var/lib/postgresql/data
+      - ./pgdata:/var/lib/postgresql/data #pgdata ignored with .gitignore file
     container_name: pg-docker
     environment:
       POSTGRES_DB: pgdata
