@@ -70,7 +70,11 @@
 - **13: SQL**
   - DBMS:RDBMS
   - postgreSQL
-  
+
+
+- **14: postgreSQL**
+  - select data from table
+  - query operations 
 
   
   
