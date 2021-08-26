@@ -1,31 +1,36 @@
-version: '3.8'
+version: '3.9'
 services:
   node-app:
     build: .
     volumes:
       - ./:/app
     ports:
-      - '8000:8000'
+      - '8000'
     container_name: node-app
+    depends_on:
+      - pg-db
+    networks:
+       back-end:
+         aliases:
+           - node-app
 
+  pg-db:
+    image: postgres:13.4
+    env_file:
+      - ./.env
+    ports:
+      - '5432'
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    container_name: pg-data
+    networks:
+      back-end:
+        aliases:
+          - pg-db
 
-#    depends_on:
-#      - pg-db
-#    networks:
-#       back-end:
+volumes:
+  pgdata:
 
-#  pg-db:
-#    image: postgres
-#    env_file:
-#      - ./.env
-#    ports:
-#      - '5432:5432'
-#    container_name: pg-data
-#    networks:
-#      - back-end
-#
-#volumes:
-#  pd-volumes:
-#
-#networks:
-#  back-end:
+networks:
+  back-end:
+    external: false
