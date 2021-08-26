@@ -76,5 +76,9 @@
   - select data from table
   - query operations 
 
+
+- **15: postgreSQL**
+  - join  
+
   
   
