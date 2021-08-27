@@ -1,11 +1,16 @@
-import { Entity, BaseEntity, Column, PrimaryColumn } from 'typeorm';
+import {
+  Entity,
+  BaseEntity,
+  Column,
+  PrimaryColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity('client')
 export class Client extends BaseEntity {
-  @PrimaryColumn({
-    type: 'numeric',
-  })
-  id: number;
+  @PrimaryColumn({ type: 'numeric' })
+  clt_id: number;
 
   @Column({
     length: 150,
@@ -32,13 +37,15 @@ export class Client extends BaseEntity {
   })
   is_active: boolean;
 
-  @Column({
-    unique: true,
-  })
+  @Column({ unique: true })
   card_number: number;
 
-  @Column({
-    type: 'numeric',
-  })
+  @Column({ type: 'numeric' })
   balance: number;
+
+  @CreateDateColumn({ nullable: false })
+  created_at: Date;
+
+  @UpdateDateColumn({ nullable: false })
+  updated_at: Date;
 }
