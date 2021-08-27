@@ -2,14 +2,14 @@ import {
   Entity,
   BaseEntity,
   Column,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 @Entity('client')
 export class Client extends BaseEntity {
-  @PrimaryColumn({ type: 'numeric' })
+  @PrimaryGeneratedColumn()
   clt_id: number;
 
   @Column({

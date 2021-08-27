@@ -3,6 +3,8 @@ import 'reflect-metadata';
 import { createConnection } from 'typeorm';
 import { Client } from './entities/Client';
 import { Product } from './entities/Product';
+import { Transaction } from './entities/Transactions';
+
 
 const main = async () => {
   try {
@@ -13,7 +15,7 @@ const main = async () => {
       username: 'postgres',
       password: 'pg1986',
       database: 'shop_data',
-      entities: [Client, Product],
+      entities: [Client, Product, Transaction],
       synchronize: true,
     });
     console.log('connected to the postgres 🔮');
