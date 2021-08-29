@@ -1,27 +1,21 @@
-//import dotenv from 'dotenv';
 import 'reflect-metadata';
-import { createConnection } from 'typeorm';
-import { Client } from './entities/Client';
-import { Product } from './entities/Product';
-import { Transaction } from './entities/Transactions';
+import dotenv from 'dotenv';
+import { createConnection, ConnectionOptions } from 'typeorm';
+import config from './ormconfig';
+import app from './app';
 
+dotenv.config();
+const port = process.env.PORT || 8080;
 
-const main = async () => {
-  try {
-    await createConnection({
-      type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'pg1986',
-      database: 'shop_data',
-      entities: [Client, Product, Transaction],
-      synchronize: true,
+createConnection(config as ConnectionOptions)
+  .then(async connection => {
+    console.log('🔮 DB connection...');
+
+    app.listen(port, () => {
+      console.log(`👻 Starting listen server on port ${port}...`);
     });
-    console.log('connected to the postgres 🔮');
-  } catch (e) {
-    console.error(e.message);
-    throw new Error('💥ERROR!!');
-  }
-};
-main();
+  })
+  .catch(e => {
+    console.error('💥 ERROR: Database connection failed!!', e);
+    throw e;
+  });
