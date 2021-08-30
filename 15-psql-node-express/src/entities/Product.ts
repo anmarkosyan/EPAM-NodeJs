@@ -1,22 +1,56 @@
-import { Entity, BaseEntity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Entity,
+  BaseEntity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  ManyToMany,
+} from 'typeorm';
+import { Client } from './Client';
+import { JoinColumn, JoinTable } from 'typeorm/browser';
+
+export const enum UserRole {
+  ADMIN = 'admin',
+  EDITOR = 'editor',
+  GHOST = 'ghost',
+}
 
 @Entity('product')
 export class Product extends BaseEntity {
-  @PrimaryGeneratedColumn()
-  prod_id: number;
+  @PrimaryGeneratedColumn('uuid')
+  prod_id: string;
 
   @Column({
+    type: 'varchar',
     length: 150,
     nullable: false,
   })
   prod_name: string;
 
-  @Column({
-    default: true,
-    nullable: false,
-  })
-  is_exists: boolean;
+  @Column({ type: 'real' })
+  price: number;
 
-  @Column({ type: 'numeric' })
-  balance: number;
+  @Column({ type: 'int' })
+  quantity: number;
+
+  @ManyToMany(() => Client)
+  @JoinTable({
+    name: 'clients_products',
+    joinColumn: {
+      name: 'product',
+      referencedColumnName: 'id',
+    },
+    inverseJoinColumn: {
+      name: 'client',
+      referencedColumnName: 'clt_id',
+    },
+  })
+  clients: Client[];
+
+  @Column({
+    type: 'enum',
+    enum: [UserRole.ADMIN, UserRole.EDITOR, UserRole.GHOST],
+    default: UserRole.ADMIN,
+  })
+  position: UserRole;
 }

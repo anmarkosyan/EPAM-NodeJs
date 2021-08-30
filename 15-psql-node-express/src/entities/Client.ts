@@ -2,10 +2,12 @@ import {
   Entity,
   BaseEntity,
   Column,
+  ManyToMany,
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Product } from './Product';
 
 @Entity('client')
 export class Client extends BaseEntity {
@@ -33,6 +35,9 @@ export class Client extends BaseEntity {
     nullable: true,
   })
   email: string;
+
+  @ManyToMany(() => Product)
+  product: Product[];
 
   @CreateDateColumn({ nullable: false })
   created_at: Date;
