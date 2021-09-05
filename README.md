@@ -85,6 +85,6 @@
   - coding challenge 
 
 
-- **17: interview questions**
+- **17:Finish course: interview questions**
   - preparation 
 
