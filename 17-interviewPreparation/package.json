@@ -1,0 +1,14 @@
+{
+  "name": "17-interviewpreparation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "dev": "nodemon main.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^16.7.10"
+  }
+}
