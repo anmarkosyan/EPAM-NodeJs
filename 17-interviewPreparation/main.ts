@@ -21,78 +21,78 @@
 //   name: string;
 //   age: number
 // } = {
-const person = {
-  name: 'Anush',
-  age: 34,
-};
+// const person = {
+//   name: 'Anush',
+//   age: 34,
+// };
 //console.log(person.name);
 
 //array type
-const person1 = {
-  name: 'Anush',
-  age: 34,
-  hobbies: ['yoga', 'bike'],
-};
+// const person1 = {
+//   name: 'Anush',
+//   age: 34,
+//   hobbies: ['yoga', 'bike'],
+// };
 //console.log(person1.name);
 
-let activities: string[];
-activities = ['swimming', 'hiking'];
-
-for (const activity of activities) {
-  //console.log(activity.toUpperCase()); // => typeof string
-  //console.log(activity.map()); //!! ERROR !!!
-}
+// let activities: string[];
+// activities = ['swimming', 'hiking'];
+//
+// for (const activity of activities) {
+//console.log(activity.toUpperCase()); // => typeof string
+//console.log(activity.map()); //!! ERROR !!!
+//}
 
 //tuple type
-const tuple: {
-  role: [number, string];
-} = {
-  role: [2, 'admin'],
-};
-tuple.role.push(45); //!!!but dont do this, ony that count of values which is specifies
-tuple.role.push('user');
+// const tuple: {
+//   role: [number, string];
+// } = {
+//   role: [2, 'admin'],
+// };
+// tuple.role.push(45); //!!!but dont do this, ony that count of values which is specifies
+// tuple.role.push('user');
 
 //console.log(tuple.role);
 
 //enum type enum{NEW = 2, NEW1 = 10, NEW2 = 15} => object with identifier values
 //also for mapping values
-enum Role {
-  'ADMIN' = 3,
-  'USER',
-  'EDITOR',
-}
+// enum Role {
+//   'ADMIN' = 3,
+//   'USER',
+//   'EDITOR',
+// }
 
-const enums = {
-  role: Role.ADMIN, //=> doing mapping value
-};
+// const enums = {
+//   role: Role.ADMIN, //=> doing mapping value
+// };
 
 //console.log(enums.role);
 
 //any type => avoid using this typescript data type!!!!
 
 //union type, aliases
-type Combinable = number | string; // => creating alias for our types
-
-function combine(a: Combinable, b: Combinable): Combinable {
-  let result;
-  if (typeof a === 'number' && typeof b === 'number') {
-    result = a + b;
-  } else {
-    return a.toString() + b.toString();
-  }
-  return result;
-}
-const combineAge = combine(3, 5);
-const combineNames = combine('Anush', 'Markos');
+// type Combinable = number | string; // => creating alias for our types
+//
+// function combine(a: Combinable, b: Combinable): Combinable {
+//   let result;
+//   if (typeof a === 'number' && typeof b === 'number') {
+//     result = a + b;
+//   } else {
+//     return a.toString() + b.toString();
+//   }
+//   return result;
+// }
+// const combineAge = combine(3, 5);
+// const combineNames = combine('Anush', 'Markos');
 // console.log(combineAge);
 // console.log(combineNames);
 
 //functions
-function add2(a: number, b: number): number {
-  return a + b;
-}
-
-console.log(add2(5, 7));
+// function add2(a: number, b: number): number {
+//   return a + b;
+// }
+//
+// console.log(add2(5, 7));
 
 //interface
 // class Point {
@@ -107,10 +107,37 @@ console.log(add2(5, 7));
 // const point = new Point(3, 5);
 // point.add();
 
-for (var i = 0; i < 5; i++) {
-  setTimeout((y)=>{
-    console.log(y)
-  }, 2000, i)
-  //console.log(i);
-}
+// for (var i = 0; i < 5; i++) {
+//   setTimeout((y)=>{
+//     console.log(y)
+//   }, 2000, i)
+//   //console.log(i);
+// }
 //console.log(i)
+
+//===================  fibonacci CPU-bound problem =================
+import { createServer, IncomingMessage, ServerResponse } from 'http';
+import fibonacci from './fibonacci';
+
+const port = 3000;
+
+const server = createServer((req: IncomingMessage, res: ServerResponse) => {
+  const url: string = req.url!;
+  const baseURL = `https://${req.headers.host}/`;
+  const reqUrl = new URL(url, baseURL);
+  const { pathname } = reqUrl;
+  console.log('Incoming request to:', req.url);
+
+  if (pathname === '/fibonacci') {
+    const n = Number(reqUrl.searchParams.get('n'));
+    console.log(n);
+    const result = fibonacci(n);
+
+    res.writeHead(200, { 'Content-type': 'text/html' });
+    return res.end(result.toString());
+  } else {
+    res.writeHead(200, { 'Content-type': 'text/html' });
+    return res.end('Hello World!');
+  }
+});
+server.listen(port, () => console.log(`Listening on port ${port}...`));
