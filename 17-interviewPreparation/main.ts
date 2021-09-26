@@ -116,8 +116,10 @@
 //console.log(i)
 
 //===================  fibonacci CPU-bound problem =================
+import { fork } from 'child_process';
+import path from 'path';
 import { createServer, IncomingMessage, ServerResponse } from 'http';
-import fibonacci from './fibonacci';
+//import fibonacci from './fibonacci';
 
 const port = 3000;
 
@@ -130,11 +132,14 @@ const server = createServer((req: IncomingMessage, res: ServerResponse) => {
 
   if (pathname === '/fibonacci') {
     const n = Number(reqUrl.searchParams.get('n'));
-    console.log(n);
-    const result = fibonacci(n);
 
-    res.writeHead(200, { 'Content-type': 'text/html' });
-    return res.end(result.toString());
+    const childProcess = fork(path.join(__dirname, 'fibonacci-fork'));
+    childProcess.on('message', msg => {
+      res.writeHead(200, { 'Content-type': 'text/html' });
+      return res.end(msg.toString());
+    });
+
+    childProcess.send(n);
   } else {
     res.writeHead(200, { 'Content-type': 'text/html' });
     return res.end('Hello World!');
