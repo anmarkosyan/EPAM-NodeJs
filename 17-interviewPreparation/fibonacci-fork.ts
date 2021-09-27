@@ -4,7 +4,7 @@
 //3️⃣ Using worker threads
 
 //2️⃣ Spawning a child process
-function fibonacci(n: number): number {
+const fibonacci = function(n: number): number {
   if (n <= 1) return n;
   return fibonacci(n - 1) + fibonacci(n - 2);
 }
