@@ -42,15 +42,36 @@
 // console.log('Immediately');
 
 //4: using util core module
-import { promisify } from 'util';
-import fs from 'fs';
+// import { promisify } from 'util';
+// import fs from 'fs';
+//
+// const writeFile = promisify(fs.writeFile);
+//
+//
+// writeFile('test.txt', 'created txt file using promisify way)))').then(() =>
+//   console.log('Cool!!')
+// ).catch(err => console.error(err.message));
 
+//5: using promises
+import fs from 'fs';
+import { promisify } from 'util';
 const writeFile = promisify(fs.writeFile);
 
+const delay = (second: any) =>
+  new Promise(resolve => {
+    setTimeout(resolve, second * 1000);
+  });
 
-writeFile('test.txt', 'created txt file using promisify way)))').then(() =>
-  console.log('Cool!!')
-).catch(err => console.log(err.message));
+const sequantlly = () =>
+  Promise.resolve()
+    .then(() => console.log('starting...'))
+    .then(() => delay(1))
+    .then(() => 'waiting')
+    .then(() => delay(2))
+    .then(() => writeFile('test1', 'added test1 file'))
+    .then(() => 'file successfully created...')
+    .then(console.log)
+      .catch(console.error);
 
-
+sequantlly();
 
