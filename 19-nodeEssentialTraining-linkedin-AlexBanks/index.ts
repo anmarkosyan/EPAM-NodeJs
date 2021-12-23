@@ -7,6 +7,7 @@
 // console.log(dataArray);
 // console.log(dataArray.slice(2).toString());
 
+/*
 const questions = [
     "file name",
     "environment",
@@ -21,7 +22,7 @@ const ask = (i = 0) => {
 
 ask();
 
-const answers = [];
+const answers: string[] = [];
 process.stdin.on('data', data => {
     answers.push(data.toString().trim());
 
@@ -40,3 +41,47 @@ process.on('exit', ()=>{
     for ${name} inside ${env} with ${npm}))))))
     `);
 });
+ */
+
+import * as readline from 'readline';
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+// rl.question('how are you?', answer => {
+//     console.log(`your answer is: ${answer}`);
+//     process.exit();
+// });
+
+const questions: string[] = [
+    "How are you?",
+    "Where do you live?",
+    "How's your day?"
+];
+
+const collectFunctions = ( questions: string[], done: any) => {
+    const answers: string[] = [];
+    const [ fistQ ] = questions;
+
+    const questionAnswered = (answer: string) => {
+        answers.push(answer);
+        if(answers.length< questions.length){
+            rl.question(questions[answers.length], questionAnswered);
+        }else{
+            done(answers);
+        }
+    }
+
+    rl.question(fistQ, questionAnswered);
+};
+
+collectFunctions(questions, (answers: string): void => {
+    console.log('Thank you for your answers');
+    console.log(answers);
+    process.exit();
+});
+
+
+
