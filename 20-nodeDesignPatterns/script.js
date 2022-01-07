@@ -61,9 +61,11 @@
 // delete obj1.age;
 // console.log(obj.user, obj1.age);//Hello
 
-//const arr = [23, 34, 1, 2, 3];
+// const arr = [23, 34, 1, 2, 3];
 // console.log(arr[10]);// undefined
 // arr[10] = 9;
+// const onlyItems = arr.map(el =>  el);
+// console.log(onlyItems);
 // for(let i = 0; i < arr.length; i++){
 //     console.log(arr[i]);
 // }
@@ -83,14 +85,13 @@
 // const a = function (data, day){
 //     data.age = 90;
 //     day = 67;
-//
 // }
 // a(user, birthday);
-// console.log(user, birthday);
+// console.log('=====', user, birthday);
 
-// let data1 = 'Anush';
+// let data1 = 'Anush';// The JavaScript delete operator removes a property from an object;
 // age = 35;
-// console.log(delete data1, data1);
+// console.log(delete data1);
 // console.log(delete age);
 
 // var x = 10;
@@ -121,10 +122,124 @@
 // console.log(obj1 === obj2);
 // console.log(obj1, obj2);
 
-const arr = [];
-arr[0] = 9;
-arr[1] = 23;
-arr.x = '90';
-arr.y = 890;
-console.log(arr.length, arr);
-console.log(null == undefined);//true
+// const arr = [];
+// arr[0] = 9;
+// arr[1] = 23;
+// arr.x = '90';
+// arr.y = 890;
+// console.log(arr.length, arr);
+//
+//
+// console.log(null == undefined);//true
+// console.log(null === undefined); // false
+
+// const arr = [1, 2, 3, 4, 'hello', ];
+//  arr.helloObj = 'hello obj';
+// for (const keys in arr) {
+//     console.log(keys);
+// }
+// console.log('---------');
+
+// for(const value of arr){
+//     console.log(value);
+// }
+// console.log('=========');
+// console.log('2' in arr);// true => will iterate over keys/indexes
+
+//console.log(10 > 11 > -5 === true);
+
+// let x = 1;
+// function foo(x){
+//     x = x + x;
+//     x = 4;
+//     console.log(x)
+// }
+// foo(x);
+// console.log(x);
+
+// const arr = [1, 2, 3, 4];
+// arr.forEach((el, i, arr) => console.log(el + 1));
+// console.log(arr);
+
+// [1, 2, 3, 4].reduce((x, y) => console.log(x, y));//if
+// const arr1 = [3, 4, 5];
+// const sumNum = arr1.reduce((x, y) => x + y);
+// console.log(sumNum);
+
+// let day = 6;
+// switch (day) {
+//   case 6:
+//     console.log('hello');// группируем оба case
+//   case 7:
+//     console.log('weekend');
+//     //break;
+//   default:
+//     console.log('work day');
+// }
+//
+// switch (1) {
+//   case 2:
+//     console.log(2);
+//     break;
+//   default:
+//     console.log(3);
+//   case 4:
+//     console.log(4);
+// }
+
+// function foo() {
+//   console.log(this);
+// }
+//
+// function goo() {
+//   return arguments[0]();
+// }
+//
+// goo(foo);
+
+// const foo = (baz = 9) => {
+//     //function bar => hoisting
+//     //function baz => hoisting
+//   var baz = 'HAPPY!';
+//
+//   // function bar() {
+//   //   return 'HAPPY!';
+//   // }
+//
+//   // function baz() {
+//   //   return 'HAPPY!';
+//   // }
+//   var bar = 8;
+//   return [typeof baz, typeof bar];
+// };
+// console.log(foo());
+
+// const obj1 = {
+//     baz:'Hi!',
+//     arr: [2, 5, 7, 8]
+// }
+// const obj2 = {...obj1};
+// console.log(obj2 === obj1);
+// console.log(obj1.arr === obj2.arr);
+// obj1.baz = 'Hello';
+// obj1.arr.push(20, 59);
+//
+// console.log(obj2.baz, obj2.arr);
+
+// var x = 10
+// const obj = {
+//     x: 20,
+//     foo: function() {
+//         setTimeout(() => {
+//             console.log(this.x)
+//         }, 0)
+//     }
+// }
+// obj.foo();
+
+const person = { name: "Davit" };
+
+Object.defineProperty(person, "age", { value: 21 });
+
+console.log(person);
+console.log(Object.keys(person));
