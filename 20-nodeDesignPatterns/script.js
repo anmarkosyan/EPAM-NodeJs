@@ -237,9 +237,88 @@
 // }
 // obj.foo();
 
-const person = { name: "Davit" };
+// const person = { name: "Davit" };
+//
+// Object.defineProperty(person, "age", { value: 21 });
+//
+// console.log(person);
+// console.log(Object.keys(person));/
 
-Object.defineProperty(person, "age", { value: 21 });
+//============================ ADVANCE - PROMISES ===================
 
-console.log(person);
-console.log(Object.keys(person));
+// class Chameleon {
+//   static colorChange(newColor) {
+//     this.newColor = newColor;
+//     return this.newColor;
+//   }
+//   constructor({ newColor = 'green' } = {}) {
+//     this.newColor = newColor;
+//   }
+// }
+//
+// const freddie = new Chameleon({ newColor: 'purple' });
+// console.log(freddie.colorChange('orange'));//static method should be called by class itself not with instances
+
+// Promise.resolve()
+//   .then(() => {
+//     setTimeout(() => {
+//       console.log('setTimeout 1');
+//     }, 0);//3
+//   }).then(() => {
+//     console.log('then');//1
+//   });
+//
+// setTimeout(() => {
+//   console.log('setTimeout 2');
+// }, 0);//2
+
+// class DataBase {
+//   constructor(data) {
+//     if (DataBase.exists) {
+//       return DataBase.demo;
+//     }
+//     DataBase.demo = this;
+//     DataBase.exists = true;
+//     this.data = data;
+//   }
+// }
+// const mongo = new DataBase('MongoDB');
+// const mysql = new DataBase('MySQL');
+// console.log(mongo instanceof DataBase);//true
+// console.log(mysql);//mongoDB
+
+// console.log(Object.prototype);// [Object: null prototype] {}
+// console.log(Array.prototype);//Object(0) []
+// console.log(String.prototype);// {}
+// console.log(Number.prototype);// {}
+// console.log(Array.isArray(Array.prototype));//true
+
+// const obj = { 1: 'a', 2: 'b', 3: 'c' };
+// const set = new Set([1, 2, 3, 4, 5]);
+//
+// console.log(obj.hasOwnProperty('1')); //true
+// console.log(obj.hasOwnProperty(1)); //true
+// console.log(set.has('1'));
+// console.log(set.has(1));
+
+//console.log(typeof Object);//function
+
+// const animal = {
+//     jumps: null
+// };
+//
+// const rabbit = {
+//     __proto__: animal,
+//     jumps: true
+// }
+// console.log(rabbit.jumps);//true
+// delete rabbit.jumps;
+// console.log(rabbit.jumps);//null
+
+let config = {
+  alert: setInterval(() => {
+    console.log('Hello Wolrd!');
+  }, 1000),
+};
+
+//config = null;
