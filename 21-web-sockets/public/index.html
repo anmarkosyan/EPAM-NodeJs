@@ -10,51 +10,21 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <style>
-      form {
-        padding: 20px;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        padding-right: 50px;
-      }
-      #messages {
-        list-style-type: none;
-        mergin: 0;
-        padding: 0;
-        width: 100%;
-      }
-      #messages li {
-        padding: 5px 10px;
-      }
-      #messages li:nth-child(odd) {
-        background: #eee;
-      }
-    </style>
   </head>
   <body>
-    <div class="container-fluid">
-      <div>
-        <ul id="messages"></ul>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Tech space chatter</h1>
+        <p class="lead">Select which room you would like join below!!</p>
       </div>
+    </div>
+    <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-6">
-          <form action="">
-            <div class="input-group">
-              <input
-                id="m"
-                autocomplete="off"
-                type="text"
-                class="form-control"
-                placeholder="Message..."
-                aria-label="Message..."
-              />
-              <span class="input-group-btn">
-                <button class="btn btn-secondary" type="submit">Send!</button>
-              </span>
-            </div>
-          </form>
-        </div>
+        <ul class="list-group col">
+          <a href="/javascript" class="list-group-item list-group-item-action">Javascript</a>
+          <a href="/swift" class="list-group-item">Swift</a>
+          <a href="/css" class="list-group-item">CSS</a>
+        </ul>
       </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -63,24 +33,5 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
-      const room = 'javascript';
-      const socket = io('/tech');
-      $('form').submit(() => {
-        const msg = $('#m').val();
-        socket.emit('message', { room, msg });
-        $('#m').val('');
-        return false;
-      });
-
-      socket.on('connect', () => {
-        socket.emit('join', { room: room });
-      });
-
-      socket.on('message', msg => {
-        $('#messages').append($('<li>').text(msg));
-      });
-    </script>
   </body>
 </html>
