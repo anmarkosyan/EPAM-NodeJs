@@ -74,43 +74,43 @@ const arr2: Array<number> = [1, 2,3];
 
 //============ differences between INTERFACE AND TYPE ALIASES ===========
 //Extending an interface
-interface User {
-    firstName: string,
-    age: number
-}
-
-interface Admin extends User {
-    permission: boolean
-}
-
-//Adding new fields to an existing interface
-interface Admin {
-    tell: number
-}
-const admin = function(data: Admin){
-    console.log(data)
-
-}
-admin({firstName: 'asa', age: 35, permission: false, tell: 1234})
+// interface User {
+//     firstName: string,
+//     age: number
+// }
+//
+// interface Admin extends User {
+//     permission: boolean
+// }
+//
+// //Adding new fields to an existing interface
+// interface Admin {
+//     tell: number
+// }
+// const admin = function(data: Admin){
+//     console.log(data)
+//
+// }
+// admin({firstName: 'asa', age: 35, permission: false, tell: 1234})
 
 //=================== type aliases ===================
 //Extending a type via intersections
-type User1  = {
-    name: string,
-    age: number
-}
-type Admin1 = User1 & {
-   role: boolean
-}
+// type User1  = {
+//     name: string,
+//     age: number
+// }
+// type Admin1 = User1 & {
+//    role: boolean
+// }
 
 //!!!!!A type cannot be changed after being created
 // type Admin1 = {  // Error: Duplicate identifier
 //     tell: number
 // }
-const admin1 = function(data: Admin1){
-    console.log(data)
-}
-admin1({name: 'aram', age: 36, role: true})
+// const admin1 = function(data: Admin1){
+//     console.log(data)
+// }
+// admin1({name: 'aram', age: 36, role: true})
 
 //enum
 
