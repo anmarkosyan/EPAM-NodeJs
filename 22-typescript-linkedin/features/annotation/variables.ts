@@ -19,7 +19,7 @@ class Car {
 const car1: Car = new Car();
 
 //object literals
-const pointers = {
+const pointers: {x: number, y: number} = {
     x: 10,
     y: 2
 }
